@@ -1,0 +1,43 @@
+.left
+{    
+    float:left;
+    height: 535px;
+    width: 15%;
+    border-right: 1px solid;
+}
+
+.centre
+{
+    margin-top:3%;
+    float: right;
+    margin-right: 15%;
+}
+
+
+
+.left_Defect_Fix
+{
+    float:left;
+    height: 900px;
+    width: 15%;
+    border-right: 1px solid;
+}
+
+
+.save {
+	font-weight: bold;
+	width: 130px; 
+	padding: 5px 10px; 
+	margin-top: 30px;
+	background: #cccccc;
+}
+
+tr:nth-child(even) {background: #FFFFFF}
+tr:nth-child(odd) {background: #FFFFFF}
+
+
+th {	
+	padding:0px;
+	text-align:center;	
+}
+

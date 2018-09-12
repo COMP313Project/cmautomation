@@ -1,0 +1,37 @@
+form {
+	margin-top: 10px;
+}
+
+
+.save {
+	font-weight: bold;
+	width: 130px; 
+	padding: 5px 10px; 
+	margin-top: 30px;
+	background: #cccccc;
+}
+
+tr:nth-child(even) {background: #FFFFFF}
+tr:nth-child(odd) {background: #FFFFFF}
+
+table {   
+	border-collapse:collapse;
+	border-bottom:1px solid gray;
+	font-family: Tahoma,Verdana,Segoe,sans-serif;
+	width:72%;
+}
+ 
+th {
+	border-bottom:1px solid gray;
+	background:none repeat scroll 0 0 #09c332;
+	padding:0px;
+	color: #FFFFFF;
+	width: 90%;
+	text-align:center;	
+}
+
+tr {
+	border-top:1px solid gray;
+	text-align:center;	
+}
+	

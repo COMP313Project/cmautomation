@@ -1,0 +1,89 @@
+html, body{
+	margin-left:3px; margin-right:3px; 
+	padding:0px; 
+	font-family:Verdana, Arial, Helvetica, sans-serif;	
+	 background-image: url("../images/light-gray-980x600_c.jpg");
+	 background-repeat: no-repeat;
+	 background-size: cover;
+}
+
+
+label {
+	font-size: 16px; 
+	width: 220px; 
+	display: block; 
+	text-align: right;
+	margin-right: 10px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+input {
+	width: 250px;
+	border: 1px solid #666; 
+	border-radius: 5px; 
+	padding: 4px; 
+	font-size: 16px;
+}
+
+.input {
+	width: 250px;
+	border: 1px solid #666; 
+	border-radius: 5px; 
+	padding: 4px; 
+	font-size: 16px;
+}
+
+td{
+	align-content: left;
+	align-items: left;
+}
+ 
+#wrapper {width: 100%; margin-top: 0px; }
+#header {width: 100%; height: 45px; background: #808080; margin-top: 0px; padding:5px 5px 5px 5px;}
+#header h2 {width: 100%; margin:auto; color: #FFFFFF;}
+#container {width: 100%; margin:auto; padding:5px 5px 5px 5px; background-color: #FFFFFF;min-height: 450px;	max-height: 550px; scroll: auto; text-align: center; align-content: center;}
+#container h3 {color: #000;}
+#container #content {margin-top: 20px;}
+
+.add-button {
+	border: 1px solid #666; 
+	border-radius: 5px; 
+	padding: 4px; 
+	font-size: 12px;
+	font-weight: bold;
+	width: 135px; 
+	padding: 5px 10px; 
+	margin-bottom: 15px;
+	background: #cccccc;
+}
+
+.content-page
+{
+	min-height: 500px;	
+	max-height: 530px;
+	overflow: scroll;
+	border: 1px solid #black;
+	align-content: center;
+	align-items: center;
+	background-color: #FFFFFF;
+
+}
+
+.footer
+{
+	height: 30px;
+	width: 100%;
+	background-color: black;	
+	align-items: center;
+	align-content: center;
+	text-align: center;
+}
+.copyRight
+{
+	width: 100%; 
+	margin:auto; 
+	font-size: 10px;
+	color: #FFFFFF;
+	text-align: center;
+}
