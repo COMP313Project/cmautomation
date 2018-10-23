@@ -38,13 +38,13 @@ public class DefectFixDetailController {
 	@Autowired
 	private VendorService vendorService;
 
-	/*// pre-process form data and eliminates any white spaces
+	// pre-process form data and eliminates any white spaces
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
 
 		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
-	}*/
+	}
 
 	// render defect list
 	@GetMapping("/defect/list") // works fine

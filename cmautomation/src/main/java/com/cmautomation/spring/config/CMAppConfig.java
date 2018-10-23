@@ -70,6 +70,7 @@ public class CMAppConfig implements WebMvcConfigurer{
 		LocalSessionFactoryBean sessionFactory=new LocalSessionFactoryBean();
 		//set properties
 		sessionFactory.setDataSource(myDataSource());
+		//sessionFactory.setDataSource(securityDataSource());
 		sessionFactory.setPackagesToScan(env.getProperty("hibernate.packagesToScan"));
 		sessionFactory.setHibernateProperties(getHibernateProperties());
 		return sessionFactory;

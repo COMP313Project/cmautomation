@@ -28,63 +28,63 @@
 	src="<c:url value="https://code.jquery.com/jquery-3.3.1.min.js" />"></script>
 	
 <script>
-  $(document).ready(function(){
-	        $("#status").change(function(){
-	        	var previousStatus= $("#hiddenStatus").val();
-	        	
-	        	var newStatus=$(this).val();
-	        	
-	        	if(previousStatus>newStatus)
-	        	{
-	        		alert("Status is not valid");
-	        		$(this).val(previousStatus);
-	        	}     
-	        });
-	        
-	        $("#defectCreationDate").change(function(){
-	        	
-	        	var objDate = new Date();
-	        	var defectCreationDate = $("#defectCreationDate").val();
-	        	
-	        	var fixRecieveDate=$("#fixRecieveDate").val();
-	        	
-	        	if(fixRecieveDate!=null && fixRecieveDate!='' && defectCreationDate!=null && defectCreationDate!='' && defectCreationDate>fixRecieveDate)
-	        	{
-	        		alert("FixRecieveDate can not be earlier than DefectCreationDate");
-	        		$("#defectCreationDate").val("");
-	        	}     
-	        });
-	        
- 			 $("#fixRecieveDate").change(function(){
-	        	
-	        	var objDate = new Date();
-	        	var defectCreationDate = $("#defectCreationDate").val();
-	        	
-	        	var fixRecieveDate=$("#fixRecieveDate").val();
-	        	
-	        	if(fixRecieveDate!=null && defectCreationDate!=null && fixRecieveDate!='' && defectCreationDate!='' && defectCreationDate>fixRecieveDate)
-	        	{
-	        		alert("FixRecieveDate can not be earlier than DefectCreationDate");
-	        		$("#fixRecieveDate").val("");
-	        	}     
-	        });
- 			 
- 			 
- 			 $("#reviewDate").change(function(){
-	        	
-	        	var objDate = new Date();
-	        	var reviewDate = $("#reviewDate").val();
-	        	
-	        	var fixRecieveDate=$("#fixRecieveDate").val();
-	        	
-	        	if(fixRecieveDate!=null && reviewDate!=null && fixRecieveDate!='' && reviewDate!='' && fixRecieveDate>reviewDate)
-	        	{
-	        		alert("Review Date can not be earlier than Fix Recieve Date");
-	        		$("#reviewDate").val("");
-	        	}     
-	        });
-	    })
-	
+$(document).ready(function(){
+    $("#status").change(function(){
+    	var previousStatus= $("#hiddenStatus").val();
+    	
+    	var newStatus=$(this).val();
+    	
+    	if(previousStatus>newStatus)
+    	{
+    		alert("Status is not valid");
+    		$(this).val(previousStatus);
+    	}     
+    });
+    
+    $("#defectCreationDate").change(function(){
+    	
+    	var objDate = new Date();
+    	var defectCreationDate = $("#defectCreationDate").val();
+    	
+    	var fixRecieveDate=$("#fixRecieveDate").val();
+    	
+    	if(fixRecieveDate!=null && fixRecieveDate!='' && defectCreationDate!=null && defectCreationDate!='' && defectCreationDate>fixRecieveDate)
+    	{
+    		alert("FixRecieveDate can not be earlier than DefectCreationDate");
+    		$("#defectCreationDate").val("");
+    	}     
+    });
+    
+		 $("#fixRecieveDate").change(function(){
+    	
+    	var objDate = new Date();
+    	var defectCreationDate = $("#defectCreationDate").val();
+    	
+    	var fixRecieveDate=$("#fixRecieveDate").val();
+    	
+    	if(fixRecieveDate!=null && defectCreationDate!=null && fixRecieveDate!='' && defectCreationDate!='' && defectCreationDate>fixRecieveDate)
+    	{
+    		alert("FixRecieveDate can not be earlier than DefectCreationDate");
+    		$("#fixRecieveDate").val("");
+    	}     
+    });
+		 
+		 
+		 $("#reviewDate").change(function(){
+    	
+    	var objDate = new Date();
+    	var reviewDate = $("#reviewDate").val();
+    	
+    	var fixRecieveDate=$("#fixRecieveDate").val();
+    	
+    	if(fixRecieveDate!=null && reviewDate!=null && fixRecieveDate!='' && reviewDate!='' && fixRecieveDate>reviewDate)
+    	{
+    		alert("Review Date can not be earlier than Fix Recieve Date");
+    		$("#reviewDate").val("");
+    	}     
+    });
+})
+
 </script>
 
 <style>
