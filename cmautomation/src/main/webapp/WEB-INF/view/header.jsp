@@ -48,7 +48,7 @@
 	  	</security:authorize>
 	   
 	    <security:authorize access="hasAnyRole('CMA','QA','TSA')">
-	   	<li class="dropdown"><a id="ddlManageDeployment" name="ddlManageDeployment" class="dropdown-toggle" data-toggle="dropdown" href="#">ManageDeployment<span class="caret"></span></a>
+	   	<li class="${title=='DeploymentSchedule' || title=='PlanDeployment'? 'active':''}"><a id="ddlManageDeployment" name="ddlManageDeployment" class="dropdown-toggle" data-toggle="dropdown" href="#">ManageDeployment<span class="caret"></span></a>
 	   		<ul class="dropdown-menu">
 	   			<li  class="${title=='DeploymentSchedule'? 'active':''}">
 	   			<a id="lnkDeploymentSchedule" name="lnkDeploymentSchedule" href="${pageContext.request.contextPath}/cma/deploymentPlan/list">Deployment Schedule</a>
@@ -66,8 +66,8 @@
        	<li  class="${title=='listApplication' || title=='applicationForm' || title=='listVendors' || title=='vendorForm' || title=='deploymentEnvironmentList' || title=='environmentForm'? 'active':''}"><a id="ddlManageSystemParameter" name="ddlManageSystemParameter" class="dropdown-toggle" data-toggle="dropdown" href="#">ManageSystemParameter<span class="caret"></span></a>
         	<ul class="dropdown-menu">
           		<li class="${title=='listApplication'? 'active':''}" ><a id="lnkApplications" name="lnkApplications" href="${pageContext.request.contextPath}/admin/app/list">Applications</a></li>
-          		<li class="${title=='listVendors'? 'active':''}" ><a id="lnkVendors" href="${pageContext.request.contextPath}/vendor/list">Vendors</a></li>
-          		<li class="${title=='deploymentEnvironmentList'? 'active':''}" ><a href="${pageContext.request.contextPath}/environment/list">Environments</a></li>
+          		<li class="${title=='listVendors'? 'active':''}" ><a id="lnkVendors" name="lnkVendors" href="${pageContext.request.contextPath}/vendor/list">Vendors</a></li>
+          		<li class="${title=='deploymentEnvironmentList'? 'active':''}" ><a id="lnkEnvironments" name="lnkEnvironments" href="${pageContext.request.contextPath}/environment/list">Environments</a></li>
           	</ul>
       	</li>
 		</security:authorize>		
@@ -77,7 +77,7 @@
 		<li><a href="#"><span class="glyphicon glyphicon-certificate"></span><security:authentication property="principal.authorities" /></a></li>
 	    <li><form:form action="${pageContext.request.contextPath}/logout" method="POST" id="logout">
 					<input type="hidden" value="Logout" /></form:form>
-				<a href="#" onclick="document.getElementById('logout').submit();">Logout</a>				
+				<a id="lnkLogout" name="lnkLogout" href="#" onclick="document.getElementById('logout').submit();">Logout</a>				
 			</li>	       
     </ul>
   </div>
