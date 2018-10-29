@@ -32,14 +32,14 @@
       	<li><a href="${pageContext.request.contextPath}/">Home</a></li>
       
 	  	<security:authorize access="hasAnyRole('CMA','QA','TSA')">
-	  	<li class="${title=='listDefectFixDetail' || title=='defectForm'? 'active':''}" ><a class="dropdown-toggle" data-toggle="dropdown" href="#">ManageDefects<span class="caret"></span></a>
+	  	<li class="${title=='listDefectFixDetail' || title=='defectForm'? 'active':''}" ><a name="ddlManageDefects" id="ddlManageDefects" class="dropdown-toggle" data-toggle="dropdown" href="#">ManageDefects<span class="caret"></span></a>
 		   <ul class="dropdown-menu">
 				<!-- Add link to point to Leaders..this is for the managers	 -->
-				<li class="${title=='listDefectFixDetail'? 'active':''}" }><a href="${pageContext.request.contextPath}/cma/defect/list">Defect List</a></li>
+				<li class="${title=='listDefectFixDetail'? 'active':''}" }><a id="lnkDefectList" name="lnkDefectList" href="${pageContext.request.contextPath}/cma/defect/list">Defect List</a></li>
 				
 				<li class="${title=='defectForm'? 'active':''}" >
 				<security:authorize access="hasRole('CMA')">
-				<a href="${pageContext.request.contextPath}/cma/defect/defectAddForm">Defect Detail</a>
+				<a id="lnkDefectAddForm" name="lnkDefectAddForm" href="${pageContext.request.contextPath}/cma/defect/defectAddForm">Defect Detail</a>
 				</security:authorize>
 				</li>
 				
@@ -48,14 +48,14 @@
 	  	</security:authorize>
 	   
 	    <security:authorize access="hasAnyRole('CMA','QA','TSA')">
-	   	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">ManageDeployment<span class="caret"></span></a>
+	   	<li class="dropdown"><a id="ddlManageDeployment" name="ddlManageDeployment" class="dropdown-toggle" data-toggle="dropdown" href="#">ManageDeployment<span class="caret"></span></a>
 	   		<ul class="dropdown-menu">
 	   			<li  class="${title=='DeploymentSchedule'? 'active':''}">
-	   			<a href="${pageContext.request.contextPath}/cma/deploymentPlan/list">Deployment Schedule</a>
+	   			<a id="lnkDeploymentSchedule" name="lnkDeploymentSchedule" href="${pageContext.request.contextPath}/cma/deploymentPlan/list">Deployment Schedule</a>
 	   			</li>
       			<li class="${title=='PlanDeployment'? 'active':''}">
       			<security:authorize access="hasRole('CMA')">
-      			<a href="${pageContext.request.contextPath}/cma/deploymentPlan/addForm">Plan Deployment</a>
+      			<a  id="lnkPlanDeployment" name="lnkPlanDeployment" href="${pageContext.request.contextPath}/cma/deploymentPlan/addForm">Plan Deployment</a>
       			</security:authorize>
       			</li>
       	  	</ul>
@@ -63,10 +63,10 @@
 	   	</security:authorize>
 	   	
 	   	<security:authorize access="hasRole('ADMIN')">	
-       	<li  class="${title=='listApplication' || title=='applicationForm' || title=='listVendors' || title=='vendorForm' || title=='deploymentEnvironmentList' || title=='environmentForm'? 'active':''}"><a class="dropdown-toggle" data-toggle="dropdown" href="#">ManageSystemParameter<span class="caret"></span></a>
+       	<li  class="${title=='listApplication' || title=='applicationForm' || title=='listVendors' || title=='vendorForm' || title=='deploymentEnvironmentList' || title=='environmentForm'? 'active':''}"><a id="ddlManageSystemParameter" name="ddlManageSystemParameter" class="dropdown-toggle" data-toggle="dropdown" href="#">ManageSystemParameter<span class="caret"></span></a>
         	<ul class="dropdown-menu">
-          		<li class="${title=='listApplication'? 'active':''}" ><a href="${pageContext.request.contextPath}/admin/app/list">Applications</a></li>
-          		<li class="${title=='listVendors'? 'active':''}" ><a href="${pageContext.request.contextPath}/vendor/list">Vendors</a></li>
+          		<li class="${title=='listApplication'? 'active':''}" ><a id="lnkApplications" name="lnkApplications" href="${pageContext.request.contextPath}/admin/app/list">Applications</a></li>
+          		<li class="${title=='listVendors'? 'active':''}" ><a id="lnkVendors" href="${pageContext.request.contextPath}/vendor/list">Vendors</a></li>
           		<li class="${title=='deploymentEnvironmentList'? 'active':''}" ><a href="${pageContext.request.contextPath}/environment/list">Environments</a></li>
           	</ul>
       	</li>
