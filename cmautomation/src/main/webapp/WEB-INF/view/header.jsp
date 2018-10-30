@@ -32,7 +32,7 @@
       	<li><a href="${pageContext.request.contextPath}/">Home</a></li>
       
 	  	<security:authorize access="hasAnyRole('CMA','QA','TSA')">
-	  	<li class="${title=='listDefectFixDetail' || title=='defectForm'? 'active':''}" ><a name="ddlManageDefects" id="ddlManageDefects" class="dropdown-toggle" data-toggle="dropdown" href="#">ManageDefects<span class="caret"></span></a>
+	  	<li class="${title=='listDefectFixDetail' || title=='defectForm'? 'active':''}" ><a name="ddlManageDefects" id="ddlManageDefects" class="dropdown-toggle" data-toggle="dropdown" href="#">Manage Defects<span class="caret"></span></a>
 		   <ul class="dropdown-menu">
 				<!-- Add link to point to Leaders..this is for the managers	 -->
 				<li class="${title=='listDefectFixDetail'? 'active':''}" }><a id="lnkDefectList" name="lnkDefectList" href="${pageContext.request.contextPath}/cma/defect/list">Defect List</a></li>
@@ -48,7 +48,7 @@
 	  	</security:authorize>
 	   
 	    <security:authorize access="hasAnyRole('CMA','QA','TSA')">
-	   	<li class="${title=='DeploymentSchedule' || title=='PlanDeployment'? 'active':''}"><a id="ddlManageDeployment" name="ddlManageDeployment" class="dropdown-toggle" data-toggle="dropdown" href="#">ManageDeployment<span class="caret"></span></a>
+	   	<li class="${title=='DeploymentSchedule' || title=='PlanDeployment'? 'active':''}"><a id="ddlManageDeployment" name="ddlManageDeployment" class="dropdown-toggle" data-toggle="dropdown" href="#">Manage Deployment<span class="caret"></span></a>
 	   		<ul class="dropdown-menu">
 	   			<li  class="${title=='DeploymentSchedule'? 'active':''}">
 	   			<a id="lnkDeploymentSchedule" name="lnkDeploymentSchedule" href="${pageContext.request.contextPath}/cma/deploymentPlan/list">Deployment Schedule</a>
@@ -63,7 +63,7 @@
 	   	</security:authorize>
 	   	
 	   	<security:authorize access="hasRole('ADMIN')">	
-       	<li  class="${title=='listApplication' || title=='applicationForm' || title=='listVendors' || title=='vendorForm' || title=='deploymentEnvironmentList' || title=='environmentForm'? 'active':''}"><a id="ddlManageSystemParameter" name="ddlManageSystemParameter" class="dropdown-toggle" data-toggle="dropdown" href="#">ManageSystemParameter<span class="caret"></span></a>
+       	<li  class="${title=='listApplication' || title=='applicationForm' || title=='listVendors' || title=='vendorForm' || title=='deploymentEnvironmentList' || title=='environmentForm'? 'active':''}"><a id="ddlManageSystemParameter" name="ddlManageSystemParameter" class="dropdown-toggle" data-toggle="dropdown" href="#">Manage System Parameter<span class="caret"></span></a>
         	<ul class="dropdown-menu">
           		<li class="${title=='listApplication'? 'active':''}" ><a id="lnkApplications" name="lnkApplications" href="${pageContext.request.contextPath}/admin/app/list">Applications</a></li>
           		<li class="${title=='listVendors'? 'active':''}" ><a id="lnkVendors" name="lnkVendors" href="${pageContext.request.contextPath}/vendor/list">Vendors</a></li>
