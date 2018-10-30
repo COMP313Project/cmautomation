@@ -41,6 +41,7 @@ public class DeploymentPlanDAOImpl implements DeploymentPlanDAO {
 		currentSession.saveOrUpdate(theDeploymentPlan);
 	}
 	
+	//GET DeploymentPlan
 	@Override
 	public  DeploymentPlan getDeploymentPlan(int deployment_Id) {
 		// get the current hibernate session
@@ -51,7 +52,7 @@ public class DeploymentPlanDAOImpl implements DeploymentPlanDAO {
 		return theDeploymentPlan;
 	}
 
-	// delete
+	// delete DeploymentPlan
 	@Override
 	public void deleteDeploymentPlan(int deployment_Id) {
 
@@ -67,7 +68,7 @@ public class DeploymentPlanDAOImpl implements DeploymentPlanDAO {
 	}
 
 	
-	//search
+	//search specific plan
 	@Override
 	public List<DeploymentPlan> searchDeploymentPlan(String theSearchName) {
 

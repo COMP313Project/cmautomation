@@ -24,16 +24,15 @@ public class DefectFixDetailServiceImpl implements DefectFixDetailService {
 	}
 	
 	// to get the list of defects
-		@Override
-		@Transactional
-		public List<DefectFixDetail> getNotDeployedDefectList(){
+	@Override
+	@Transactional
+	public List<DefectFixDetail> getNotDeployedDefectList(){
 			
-			return defectFixDetailDAO.getNotDeployedDefectList();
-		}
+		return defectFixDetailDAO.getNotDeployedDefectList();
+	}
 
-	
-	
-	// save a new entry
+		
+	// save a new Defect
 	@Override
 	@Transactional
 	public void saveDefectFixDetail(DefectFixDetail theDefectFixDetail) {
@@ -50,6 +49,8 @@ public class DefectFixDetailServiceImpl implements DefectFixDetailService {
 		return defectFixDetailDAO.getDefectFixDetail(defectId);
 	}
 
+	
+	//Delete Defect(Should not be implemented)
 	@Override
 	@Transactional
 	public void deleteDefectFixDetail(int defectId) {
