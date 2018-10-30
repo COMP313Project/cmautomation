@@ -28,7 +28,6 @@ $(document).ready(function() {
 	$("#username").focus();
 	});
 	});
-	
 </script>
 </head>
 
@@ -36,10 +35,10 @@ $(document).ready(function() {
 
 	<div>
 		
-		<div id="loginbox"
-			class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55" style="position: fixed; margin-top: 25%; margin-left: 50%; transform: translate(-50%, -50%);" >
+		<div id="loginbox" style="margin-top: 50px;"
+			class="mainbox col-md-3 col-md-offset-2 col-sm-6 col-sm-offset-2">
 			
-			<div class="panel panel-info" style="width: 350px" >
+			<div class="panel panel-info">
 
 				<div class="panel-heading">
 					<div class="panel-title">Sign In</div>
