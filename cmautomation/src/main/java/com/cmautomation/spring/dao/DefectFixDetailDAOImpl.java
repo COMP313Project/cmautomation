@@ -125,7 +125,7 @@ public class DefectFixDetailDAOImpl implements DefectFixDetailDAO {
 		return theDefectFixDetail;
 	}
 
-	// delete
+	//Delete Defect(Should not be implemented)
 	@Override
 	public void deleteDefectFixDetail(int defectId) {
 
@@ -140,7 +140,7 @@ public class DefectFixDetailDAOImpl implements DefectFixDetailDAO {
 
 	}
 
-	//search
+	//search defect by keyword or search string
 	@Override
 	public List<DefectFixDetail> searchDefects(String theSearchName) {
 
