@@ -9,12 +9,16 @@
 
 
 <head>
+
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Deployment Plan</title>
-<link type="text/css" rel="stylesheet"
+
+
+<link type="text/css" rel="stylesheet" 
 	href="${pageContext.request.contextPath}/resources/css/bootstrap-theme.min.css">
 <link type="text/css" rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">  
 <link type="text/css" rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link type="text/css" rel="stylesheet"
@@ -22,8 +26,9 @@
 
 <style>
 .error {
-	color: red
+	color: red;
 }
+
 </style>
 </head>
 
@@ -33,12 +38,12 @@
 <div class="content-page">
 	<div id="wrapper">
 		<div id="header">
-			<h2>Deployment Environment</h2>
+			<h2>Deployment Environment</h2>  
 		</div>
 	</div>
 	<div id="container">	
 		<form:form action="saveEnvironment" modelAttribute="environments" method="POST">
-			<!-- need to associate this data with environment_Id -->
+			    <!-- need to associate this data with environment_Id -->
 			<form:hidden path="environment_Id" />					
 			<table>
 				<tbody>					
