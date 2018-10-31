@@ -70,6 +70,16 @@ td{
 
 }
 
+
+.copyRight
+{
+	width: 100%; 
+	margin:auto; 
+	font-size: 10px;
+	color: #FFFFFF;
+	text-align: center;
+}
+
 .footer
 {
 	height: 30px;
@@ -77,13 +87,5 @@ td{
 	background-color: black;	
 	align-items: center;
 	align-content: center;
-	text-align: center;
-}
-.copyRight
-{
-	width: 100%; 
-	margin:auto; 
-	font-size: 10px;
-	color: #FFFFFF;
 	text-align: center;
 }

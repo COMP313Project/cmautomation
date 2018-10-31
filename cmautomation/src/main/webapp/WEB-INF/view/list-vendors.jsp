@@ -18,6 +18,12 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
+	
+<link type="text/css" rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/style.css">
+	
+<link type="text/css" rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/main.css">
 </head>
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp" />
@@ -37,9 +43,14 @@
 					class="add-button" />
 			</security:authorize>
 			<!--  add our html table here --------------------------------->
+			
+				<div class="wrap-table100">
+				<div class="table100">
 				<div class="col-md-12">
 					<table class="table table-bordered table-striped table-hover">
-				<tr>
+					
+				<thead>
+				<tr class="table100-head">
 					<th>Vendor Name</th>
 					<th>Description</th>
 
@@ -52,7 +63,7 @@
 					</security:authorize>
 
 				</tr>
-
+				</thead>
 				<!-- loop over and print applications -->
 				<c:forEach var="tempVendor" items="${vendors}">
 
@@ -88,7 +99,9 @@
 				</c:forEach>
 			</table>
 		</div><!-- content -->
+  	</div>
 
+	</div>
 	</div><!-- container -->
 	</div>
 	</div>

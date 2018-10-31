@@ -5,7 +5,7 @@
 		<tr>
 			<td class="copyRight">
 				All work Copyright © 2018 by CM Team.<br/>
-						All rights reserved.
+						All rights reserved. 
 				
 			</td>
 		</tr>
