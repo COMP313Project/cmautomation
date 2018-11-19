@@ -53,12 +53,18 @@
 					</tr>
 					<tr>
 						<td><label>Description:</label></td>
-						<td><form:input path="description" class="form-control" required="false"/></td>	
-						<td><form:errors path="description" cssClass="error"/></td>					
+						
+						<td><form:textarea path="description" class="form-control" required="true" rows="3"
+								cols="50"/></td>
+						<td><form:errors path="description" cssClass="error" /></td>					
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td></td>
 					</tr>
 					<tr>
 						<td><label></label></td>
-						<td><input type="submit" value="Save" class="save" /></td>
+						<td><input type="submit" value="Save"/></td>
 					</tr>
 				</tbody>
 			</table>
