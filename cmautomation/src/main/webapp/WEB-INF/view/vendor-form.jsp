@@ -42,16 +42,24 @@
 			<!-- need to associate this data with application id -->
 			<form:hidden path="vendor_Id" />					
 			<table>
-				<tbody>					
+				<tbody >					
 					<tr>
-						<td><label>Vendor Name:</label></td>
+						<td >
+						
+						<label class="required">Vendor Name:</label>
+						</td>
 						<td><form:input path="vendorName"  class="form-control" required="true"/></td>
 						<td><form:errors path="vendorName" cssClass="error" /></td>
 					</tr>
 					<tr>
-						<td><label>Description:</label></td>
-						<td><form:input path="description"  class="form-control" required="false"/></td>	
+						<td><label>Description:</label></td>	
+						<td><form:textarea path="description" class="form-control" required="true" rows="3"
+								cols="50"/></td>
 						<td><form:errors path="description" cssClass="error" /></td>					
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td></td>
 					</tr>
 					<tr>
 						<td><label></label></td>
