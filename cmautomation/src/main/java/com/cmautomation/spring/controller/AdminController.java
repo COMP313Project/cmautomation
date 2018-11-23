@@ -21,7 +21,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cmautomation.spring.entity.Application;
+import com.cmautomation.spring.entity.Vendor;
 import com.cmautomation.spring.service.ApplicationService;
+import com.cmautomation.spring.service.VendorService;
 
 @Controller
 @RequestMapping("/admin")
@@ -29,6 +31,9 @@ public class AdminController {
 
 	@Autowired
 	private ApplicationService applicationService;
+
+	@Autowired
+	private VendorService vendorService;
 	
 	//pre-process form data and eliminates any white spaces
 	@InitBinder
@@ -56,8 +61,11 @@ public class AdminController {
 	public String showAppAddForm(Model theAppModel) {
 		
 		Application application=new Application();
+		// Get Vendor List for input
+		List<Vendor> vendors = vendorService.getVendors();
 		
 		theAppModel.addAttribute("application",application);
+		theAppModel.addAttribute("vendors", vendors);
 		theAppModel.addAttribute("title", "applicationForm");
 		
 		return "app-form";
@@ -82,10 +90,12 @@ public class AdminController {
 		
 		//get the application from aplicationService
 		Application application=applicationService.getApplication(appId);
+		// Get Vendor List for input
+		List<Vendor> vendors = vendorService.getVendors();
 		
 		//set application as a model to pre-populate the update form
 		theAppModel.addAttribute("application", application);
-		
+		theAppModel.addAttribute("vendors", vendors);
 		theAppModel.addAttribute("title", "applicationForm");
 		
 		return "app-form";

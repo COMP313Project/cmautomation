@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -38,6 +40,10 @@ public class Application {
 	@Size(min=1,message="required")
 	@Column(name = "description")
 	private String description;
+	
+	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinColumn(name="vendor_Id")
+	private Vendor vendor;
 	
 	// cascade=
 	// {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH}
@@ -96,6 +102,14 @@ public class Application {
 		this.description = description;
 	}
 	
+	public Vendor getVendor() {
+		return vendor;
+	}
+	public void setVendor(Vendor vendor) {
+		this.vendor = vendor;
+	}
+
+	
 	public List<DefectFixDetail> getDefectFixDetail() {
 		return defectFixDetail;
 	}
@@ -118,6 +132,7 @@ public class Application {
 		result = prime * result + ((defectFixDetail == null) ? 0 : defectFixDetail.hashCode());
 		result = prime * result + ((deploymentPlan == null) ? 0 : deploymentPlan.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + ((vendor == null) ? 0 : vendor.hashCode());
 		return result;
 	}
 	@Override
@@ -151,11 +166,16 @@ public class Application {
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
+		if (vendor == null) {
+			if (other.vendor != null)
+				return false;
+		} else if (!vendor.equals(other.vendor))
+			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "Application [application_Id=" + application_Id + ", applicationName=" + applicationName + ", Description "+description+"]";
+		return "Application [application_Id=" + application_Id + ", applicationName=" + applicationName + ", Description "+description+" vendor=" +vendor+"]";
 	}
 
 }

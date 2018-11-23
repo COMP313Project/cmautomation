@@ -29,7 +29,7 @@
       <a class="navbar-brand" href="#">CM Automation</a>
     </div>
     <ul class="nav navbar-nav">
-      	<li><a href="${pageContext.request.contextPath}/">Home</a></li>
+      	<li class="${title=='Home'? 'active':''}"><a href="${pageContext.request.contextPath}/">Home</a></li>
       
 	  	<security:authorize access="hasAnyRole('CMA','QA','TSA')">
 	  	<li class="${title=='listDefectFixDetail' || title=='defectForm'? 'active':''}" ><a name="ddlManageDefects" id="ddlManageDefects" class="dropdown-toggle" data-toggle="dropdown" href="#">ManageDefects<span class="caret"></span></a>

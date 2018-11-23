@@ -46,6 +46,7 @@
 					
 					<th>Application Name</th>
 					<th>Description</th>
+					<th>Vendor</th>
 
 					<%-- Only show "Action" column for managers or admin --%>
 					<security:authorize access="hasRole('ADMIN')">
@@ -72,6 +73,7 @@
 					<tr>
 						<td>${tempApplication.applicationName}</td>
 						<td>${tempApplication.description}</td>
+						<td class="text-center">${tempApplication.vendor.vendorName}</td>
 
 						<security:authorize access="hasRole('ADMIN')">
 
