@@ -60,6 +60,18 @@
 						<td><form:errors path="description" cssClass="error" /></td>					
 					</tr>
 					<tr>
+						<td>
+							<label>Vendor :</label>
+						</td>
+						<td>
+							<form:select  class="form-control" path="vendor.vendor_Id">
+								<c:forEach var="tempVendors" items="${vendors}">
+									<form:option value="${tempVendors.vendor_Id}">${tempVendors.vendorName}</form:option>
+								</c:forEach>
+							</form:select>
+						</td>	
+					</tr>
+					<tr>
 						<td>&nbsp;</td>
 						<td></td>
 					</tr>
