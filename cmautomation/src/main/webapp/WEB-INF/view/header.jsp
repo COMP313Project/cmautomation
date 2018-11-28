@@ -58,6 +58,22 @@
       			<a  id="lnkPlanDeployment" name="lnkPlanDeployment" href="${pageContext.request.contextPath}/cma/deploymentPlan/addForm">Plan Deployment</a>
       			</security:authorize>
       			</li>
+      				<li  class="${title=='DeploymentCheckList'? 'active':''}">
+      			<a href="${pageContext.request.contextPath}/tsa/checkList/list">Deployment CheckList</a>
+      			</li>
+      			<li  class="${title=='AddDeploymentCheckList'? 'active':''}">
+      			<security:authorize access="hasRole('TSA')">
+      			<a href="${pageContext.request.contextPath}/tsa/checkList/deployChecklistAddForm">Add Deployment CheckList</a>
+      			</security:authorize>
+      			</li>
+      			<li  class="${title=='QACheckList'? 'active':''}">
+      			<a href="${pageContext.request.contextPath}/qa/checkList/list">QA CheckList</a>
+      			</li>
+      			<li  class="${title=='AddQACheckList'? 'active':''}">
+      			<security:authorize access="hasRole('QA')">  
+      			<a href="${pageContext.request.contextPath}/qa/checkList/QACheckListAddForm">Add QA CheckList</a>
+      			</security:authorize> 
+      			</li>			
       	  	</ul>
 	   	</li>	
 	   	</security:authorize>

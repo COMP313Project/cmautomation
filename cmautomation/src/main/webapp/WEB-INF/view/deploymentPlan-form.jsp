@@ -140,8 +140,7 @@
   	        	}  	 
   	        	compareDate();
   	        });
-  			 
- 			 
+  			  			 
  			 function compareDate()
  			 {
  				var objDate = new Date();
@@ -249,7 +248,7 @@
 							<label>Plan Date :</label>
 						</td>
 						<td>
-							<form:input type="date"   class="form-control" path="planDate" placeholder="yyyy-mm-dd"
+							<form:input type="date" class="form-control" path="planDate" placeholder="yyyy-mm-dd"
 								required="true" />
 							<form:errors path="planDate" cssClass="error" />
 						</td>
@@ -257,7 +256,7 @@
 							<label>Dev Deployment Date :</label>
 						</td>
 						<td>
-							<form:input type="date"  class="form-control" path="dev_DeploymentDate"
+							<form:input type="date" class="form-control" path="dev_DeploymentDate"
 								placeholder="yyyy-mm-dd" required="true" />
 							<form:errors path="dev_DeploymentDate" cssClass="error" />
 						</td>
@@ -267,7 +266,7 @@
 							<label>SDF Deployment Date :</label>
 						</td>
 						<td>
-							<form:input type="date"  class="form-control" path="sdf_DeploymentDate"
+							<form:input type="date" class="form-control" path="sdf_DeploymentDate"
 								placeholder="yyyy-mm-dd" required="true" />
 							<form:errors path="sdf_DeploymentDate" cssClass="error" />
 						</td>
@@ -275,7 +274,7 @@
 							<label>IST1 Deployment Date :</label>
 						</td>
 						<td>
-							<form:input type="date"  class="form-control" path="ist1_DeploymentDate"
+							<form:input type="date" class="form-control" path="ist1_DeploymentDate"
 								placeholder="yyyy-mm-dd" required="true" />
 							<form:errors path="ist1_DeploymentDate" cssClass="error" />
 						</td>
@@ -285,7 +284,7 @@
 							<label>IST2 Deployment Date :</label>
 						</td>
 						<td>
-							<form:input type="date"  class="form-control" path="ist2_DeploymentDate"
+							<form:input type="date" class="form-control" path="ist2_DeploymentDate"
 								placeholder="yyyy-mm-dd" required="true" />
 							<form:errors path="ist2_DeploymentDate" cssClass="error" />
 						</td>
@@ -293,7 +292,7 @@
 							<label>PROD Deployment Date :</label>
 						</td>
 						<td>
-							<form:input type="date"  class="form-control" path="prod_DeploymentDate"
+							<form:input type="date" class="form-control" path="prod_DeploymentDate"
 								placeholder="yyyy-mm-dd" required="true" />
 							<form:errors path="prod_DeploymentDate" cssClass="error" />
 						</td>
