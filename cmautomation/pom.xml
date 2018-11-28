@@ -14,7 +14,7 @@
 		<springsecurity.version>5.0.1.RELEASE</springsecurity.version>
 
 		<hibernate.version>5.2.12.Final</hibernate.version>
-		<mysql.connector.version>8.0.12</mysql.connector.version>
+		<mysql.connector.version>5.1.45</mysql.connector.version>
 		<c3po.version>0.9.5.2</c3po.version>
 
 		<maven.compiler.source>1.8</maven.compiler.source>
