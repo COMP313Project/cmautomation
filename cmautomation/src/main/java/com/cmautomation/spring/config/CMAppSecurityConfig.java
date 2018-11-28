@@ -36,13 +36,6 @@ public class CMAppSecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/environment/**").hasRole("ADMIN")
 		.antMatchers("/qa/**").hasAnyRole("CMA","QA","TSA")
 		.antMatchers("/tsa/**").hasAnyRole("CMA","QA","TSA")
-		//.anyRequest().authenticated()
-		/*.antMatchers("/application/showForm*").hasAnyRole("ADMIN")
-		.antMatchers("/application/save*").hasAnyRole("ADMIN")
-		.antMatchers("/application/delete").hasRole("ADMIN")
-		.antMatchers("/application/**").hasRole("USER")
-		.antMatchers("/resources/**").permitAll()
-		*/
 		.and()
 			.formLogin()
 			.loginPage("/showLoginPage")

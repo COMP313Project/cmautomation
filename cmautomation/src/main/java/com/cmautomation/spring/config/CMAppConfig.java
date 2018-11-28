@@ -13,6 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -46,6 +47,10 @@ public class CMAppConfig implements WebMvcConfigurer{
 		viewResolver.setSuffix(".jsp");
 		return viewResolver;
 	}
+	 @Bean
+	   public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
+	      return new PersistenceExceptionTranslationPostProcessor();
+	   }
 	
 	 @Override
 	 public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
