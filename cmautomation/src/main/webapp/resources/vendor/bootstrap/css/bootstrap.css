@@ -667,7 +667,7 @@ pre code {
   width: 100%;
   min-height: 1px;
   padding-right: 15px;
-  padding-left: 15px;
+  padding-left: 160px;
 }
 
 .col {
@@ -1560,6 +1560,7 @@ pre code {
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  
 }
 
 .form-control::-ms-expand {

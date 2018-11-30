@@ -47,7 +47,7 @@
 					 
 					<tr>
 						<td><label>Application Name:</label></td>
-						<td><form:input path="applicationName" class="form-control" required="true"/></td>
+						<td><form:input path="applicationName" required="true"/><span class="required-field">  </span></td> 
 						<td><form:errors path="applicationName" cssClass="error" /></td>
 						
 					</tr>

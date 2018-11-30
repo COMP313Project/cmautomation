@@ -60,7 +60,7 @@ public class DefectFixDetail {
 	
 	@Column(name="fixRecieveDate")
 	@Temporal(TemporalType.DATE)
-	@FutureOrPresent
+	//@FutureOrPresent
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date fixRecieveDate;
 	

@@ -21,6 +21,7 @@
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
 
+
 <style>
 .error {
 	color: red
@@ -43,6 +44,4 @@
 	</div>
 	
 </div>
-<div>
 <jsp:include page="/WEB-INF/view/footer.jsp" />
-</div>

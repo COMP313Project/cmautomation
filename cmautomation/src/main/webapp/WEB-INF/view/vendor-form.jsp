@@ -45,7 +45,7 @@
 				<tbody>					
 					<tr>
 						<td><label>Vendor Name:</label></td>
-						<td><form:input path="vendorName"  class="form-control" required="true"/></td>
+						<td><form:input path="vendorName" required="true" /><span class="required-field">  </span></td>
 						<td><form:errors path="vendorName" cssClass="error" /></td>
 					</tr>
 					<tr>
