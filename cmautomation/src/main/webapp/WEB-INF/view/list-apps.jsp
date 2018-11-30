@@ -19,6 +19,9 @@
 
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
+	
+<link type="text/css" rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/main.css">
 </head>
 
 <body>
@@ -40,12 +43,21 @@
 					class="add-button" />
 			</security:authorize>
 			<!--  add our html table here --------------------------------->
+				
+				<div class="wrap-table100">
+				<div class="table100">
 				<div class="col-md-12">
+							
 			<table class="table table-bordered table-striped table-hover">
-				<tr>
-					
+			
+			
+			<thead>
+			
+				<tr class="table100-head">
+				
 					<th>Application Name</th>
 					<th>Description</th>
+					<th>Vendor</th>
 
 					<%-- Only show "Action" column for managers or admin --%>
 					<security:authorize access="hasRole('ADMIN')">
@@ -54,8 +66,10 @@
 						<th>Delete</th>
 
 					</security:authorize>
-
+				
 				</tr>
+				</thead>
+				
 				<!-- loop over and print applications -->
 				<c:forEach var="tempApplication" items="${applications}">
 
@@ -68,10 +82,12 @@
 					<c:url var="deleteLink" value="/admin/app/delete">
 						<c:param name="applicationId" value="${tempApplication.application_Id}" />
 					</c:url>
-
+					
+					<tbody>
 					<tr>
 						<td>${tempApplication.applicationName}</td>
 						<td>${tempApplication.description}</td>
+						<td class="text-center">${tempApplication.vendor.vendorName}</td>
 
 						<security:authorize access="hasRole('ADMIN')">
 
@@ -88,8 +104,11 @@
 							</td>
 						</security:authorize>
 					</tr>
+				</tbody>
 				</c:forEach>
 			</table>
+			  </div>
+			</div>
 		</div><!-- content -->
 	</div>
 </div>

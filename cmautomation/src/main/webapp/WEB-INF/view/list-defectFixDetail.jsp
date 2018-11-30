@@ -51,7 +51,7 @@ $(document).ready(function() {
 	<!-- form---------------------------------------------------->
 	<div class="container">
 		
-		<div class=" col-md-12 ">
+		<div class=" col-md-12 table table-bordered">
 		
 			<!-- button for search -->
 			<div  class=" col-md-12 table ">

@@ -30,7 +30,7 @@
 			<h2>Deployment Plan List</h2>
 		</div>
 	</div>	
-	<div class="container">
+	<div class="col-md-12">
 	<div>&nbsp;</div>
 		<table class="table table-bordered table-striped table-hover">
 			<tr>				
