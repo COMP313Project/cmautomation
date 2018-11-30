@@ -140,7 +140,8 @@
   	        	}  	 
   	        	compareDate();
   	        });
-  			  			 
+  			 
+ 			 
  			 function compareDate()
  			 {
  				var objDate = new Date();
@@ -212,8 +213,8 @@
 							<label>	Deployment Title :</label>
 						</td>
 						<td>
-							<form:input path="title"  class="form-control" placeholder="Deployment Title"
-								required="true" />
+							<form:input path="title"  placeholder="Deployment Title"
+								required="true"/><span class="required-field">  </span>
 							<form:errors path="title" cssClass="error" />
 						</td>
 						<td></td>
@@ -237,7 +238,7 @@
 							<label>Defects to Deploy :</label>
 						</td>
 						<td colspan="3">
-							<form:select  class="form-control" path="defects" required="true">
+							<form:select  class="form-control required-field" path="defects" required="true" >
 								<form:options items="${listDefectFixDetail}"
 									itemValue="defect_Id" itemLabel="title" />
 							</form:select>
@@ -248,16 +249,16 @@
 							<label>Plan Date :</label>
 						</td>
 						<td>
-							<form:input type="date" class="form-control" path="planDate" placeholder="yyyy-mm-dd"
-								required="true" />
+							<form:input type="date"    path="planDate" placeholder="yyyy-mm-dd"
+								required="true" /><span class="required-field">  </span>
 							<form:errors path="planDate" cssClass="error" />
 						</td>
 						<td>
 							<label>Dev Deployment Date :</label>
 						</td>
 						<td>
-							<form:input type="date" class="form-control" path="dev_DeploymentDate"
-								placeholder="yyyy-mm-dd" required="true" />
+							<form:input type="date"   path="dev_DeploymentDate"
+								placeholder="yyyy-mm-dd" required="true"/><span class="required-field">  </span>
 							<form:errors path="dev_DeploymentDate" cssClass="error" />
 						</td>
 					</tr>
@@ -266,16 +267,16 @@
 							<label>SDF Deployment Date :</label>
 						</td>
 						<td>
-							<form:input type="date" class="form-control" path="sdf_DeploymentDate"
-								placeholder="yyyy-mm-dd" required="true" />
+							<form:input type="date"   path="sdf_DeploymentDate"
+								placeholder="yyyy-mm-dd" required="true"/><span class="required-field">  </span>
 							<form:errors path="sdf_DeploymentDate" cssClass="error" />
 						</td>
 						<td>
 							<label>IST1 Deployment Date :</label>
 						</td>
 						<td>
-							<form:input type="date" class="form-control" path="ist1_DeploymentDate"
-								placeholder="yyyy-mm-dd" required="true" />
+							<form:input type="date"  path="ist1_DeploymentDate"
+								placeholder="yyyy-mm-dd" required="true" /><span class="required-field">  </span>
 							<form:errors path="ist1_DeploymentDate" cssClass="error" />
 						</td>
 					</tr>
@@ -284,16 +285,16 @@
 							<label>IST2 Deployment Date :</label>
 						</td>
 						<td>
-							<form:input type="date" class="form-control" path="ist2_DeploymentDate"
-								placeholder="yyyy-mm-dd" required="true" />
+							<form:input type="date"   path="ist2_DeploymentDate"
+								placeholder="yyyy-mm-dd" required="true" /><span class="required-field">  </span>
 							<form:errors path="ist2_DeploymentDate" cssClass="error" />
 						</td>
 						<td>
-							<label>PROD Deployment Date :</label>
+							<label>PROD Deployment Date:</label>
 						</td>
 						<td>
-							<form:input type="date" class="form-control" path="prod_DeploymentDate"
-								placeholder="yyyy-mm-dd" required="true" />
+							<form:input type="date"   path="prod_DeploymentDate"
+								placeholder="yyyy-mm-dd" required="true" /><span class="required-field">  </span>
 							<form:errors path="prod_DeploymentDate" cssClass="error" />
 						</td>
 					</tr>
@@ -302,8 +303,8 @@
 							<label>Comment :</label>
 						</td>
 						<td colspan="3">
-							<form:textarea path="comment" class="form-control" rows="3"
-								cols="50" required="true" />
+							<form:textarea path="comment" rows="3"
+								cols="50" required="true" /><span class="required-field">  </span>
 							<form:errors path="comment" cssClass="error" />
 						</td>
 					</tr>
