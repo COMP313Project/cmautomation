@@ -48,13 +48,13 @@
 						
 						<label class="required">Vendor Name:</label>
 						</td>
-						<td><form:input path="vendorName"  class="form-control" required="true"/></td>
+						<td><form:input path="vendorName"   required="true"/><span class="required-field">  </span></td>
 						<td><form:errors path="vendorName" cssClass="error" /></td>
 					</tr>
 					<tr>
 						<td><label>Description:</label></td>	
-						<td><form:textarea path="description" class="form-control" required="true" rows="3"
-								cols="50"/></td>
+						<td><form:textarea path="description" required="true" rows="3"
+								cols="50"/><span class="required-field">  </span></td>
 						<td><form:errors path="description" cssClass="error" /></td>					
 					</tr>
 					<tr>

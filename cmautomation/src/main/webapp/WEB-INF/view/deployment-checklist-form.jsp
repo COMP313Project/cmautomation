@@ -34,7 +34,7 @@
 			<h2>Deployment CheckList Form</h2>
 		</div>
 	</div>
-<div class="content-page">	
+<div class="container">	
 	<!-- form---------------------------------------------------->
 	<div class="container">
 		
@@ -74,7 +74,7 @@
 							<label>Actual Deployment Date:</label>
 						</td>
 						<td>
-							<form:input type="date"  class="form-control" path="actualDeploymentDate"	required="true" />
+							<form:input type="date"  path="actualDeploymentDate"	required="true" /><span class="required-field">  </span>
 							<form:errors path="actualDeploymentDate" cssClass="error" />
 						</td>
 					</tr>
@@ -116,8 +116,8 @@
 							<label>Deployed Parameter Information:</label>
 						</td>
 						<td colspan="3">
-							<form:textarea class="form-control" rows="3" cols="30"
-								path="deployedParameterInfo" required="true" />
+							<form:textarea rows="3" cols="30"
+								path="deployedParameterInfo" required="true" /><span class="required-field">  </span>
 								<form:errors path="deployedParameterInfo" cssClass="error" />
 								<form:errors path="deployedPackageInfo" cssClass="error" />
 						</td>
@@ -138,8 +138,8 @@
 							<label>Database Script Information:</label>
 						</td>
 						<td colspan="3">
-							<form:textarea class="form-control" rows="3" cols="30"
-								path="dBScriptInfo" required="true" />
+							<form:textarea rows="3" cols="30"
+								path="dBScriptInfo" required="true" /><span class="required-field">  </span>
 								<form:errors path="dBScriptInfo" cssClass="error" />
 						</td>
 					</tr>
@@ -148,8 +148,8 @@
 							<label>Additional Information:</label>
 						</td>
 						<td colspan="3">
-							<form:textarea class="form-control" rows="3" cols="30"
-								path="otherDeploymentInfo" required="true" />
+							<form:textarea rows="3" cols="30"
+								path="otherDeploymentInfo" required="true" /><span class="required-field">  </span>
 								<form:errors path="otherDeploymentInfo" cssClass="error" />
 						</td>
 					</tr>
@@ -158,7 +158,7 @@
 							<label>Deployed by:</label>
 						</td>
 						<td colspan="3">
-							<form:input type="text"  class="form-control" path="deployedBy" required="true" />
+							<form:input type="text"  path="deployedBy" required="true" /><span class="required-field">  </span>
 							<form:errors path="deployedBy" cssClass="error" />
 						</td>
 					</tr>

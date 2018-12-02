@@ -19,7 +19,6 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
-	
 
 <style>
 .error {
@@ -48,16 +47,14 @@
 					 
 					<tr>
 						<td><label>Application Name:</label></td>
-						<td><form:input path="applicationName" class="form-control" required="true"/></td>
+						<td><form:input path="applicationName" required="true"/><span class="required-field">  </span></td> 
 						<td><form:errors path="applicationName" cssClass="error" /></td>
 						
 					</tr>
 					<tr>
 						<td><label>Description:</label></td>
-						
-						<td><form:textarea path="description" class="form-control" required="true" rows="3"
-								cols="50"/></td>
-						<td><form:errors path="description" cssClass="error" /></td>					
+						<td><form:input path="description" class="form-control" required="false"/></td>	
+						<td><form:errors path="description" cssClass="error"/></td>					
 					</tr>
 					<tr>
 						<td>
