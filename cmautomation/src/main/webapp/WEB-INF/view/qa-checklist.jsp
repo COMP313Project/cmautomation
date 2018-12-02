@@ -24,7 +24,7 @@
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp" />	
 	<!-- table to show application list -->
-<div class="content-page">
+<div class="container">
 	<div id="wrapper">
 		<div id="header">
 			<h2>QA Checklist</h2>

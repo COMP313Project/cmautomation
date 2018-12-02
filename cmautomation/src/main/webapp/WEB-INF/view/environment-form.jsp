@@ -9,16 +9,12 @@
 
 
 <head>
-
-
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Deployment Plan</title>
-
-
-<link type="text/css" rel="stylesheet" 
+<link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/bootstrap-theme.min.css">
 <link type="text/css" rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">  
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 <link type="text/css" rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link type="text/css" rel="stylesheet"
@@ -26,9 +22,8 @@
 
 <style>
 .error {
-	color: red;
+	color: red
 }
-
 </style>
 </head>
 
@@ -38,25 +33,24 @@
 <div class="content-page">
 	<div id="wrapper">
 		<div id="header">
-			<h2>Deployment Environment</h2>  
+			<h2>Deployment Environment</h2>
 		</div>
 	</div>
 	<div id="container">	
 		<form:form action="saveEnvironment" modelAttribute="environments" method="POST">
-			    <!-- need to associate this data with environment_Id -->
+			<!-- need to associate this data with environment_Id -->
 			<form:hidden path="environment_Id" />					
 			<table>
 				<tbody>					
 					<tr>
 						<td><label>Environment Name:</label></td>
-						<td><form:input path="environmentName"  class="form-control" required="true"/></td>
+						<td><form:input path="environmentName" required="true" /><span class="required-field">  </span></td>
 						<td><form:errors path="environmentName" cssClass="error" /></td>
 												
 					</tr>
 					<tr>
 						<td><label>Description:</label></td>
-						<td><form:textarea path="description" class="form-control" required="true" rows="3"
-								cols="50"/></td>
+						<td><form:input path="description" required="true" "/><span class="required-field">  </span></td>
 						<td><form:errors path="description" cssClass="error" /></td>
 											
 					</tr>

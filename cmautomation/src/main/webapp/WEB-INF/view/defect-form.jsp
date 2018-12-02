@@ -118,7 +118,7 @@ $(document).ready(function(){
 							<label>Title :</label>
 						</td>
 						<td colspan="3">
-							<form:input path="title" placeholder="Defect Title" required="true"/>
+							<form:input path="title" placeholder="Defect Title" required="true" /> <span class="required-field">  </span>
 							<form:errors path="title" cssClass="error" />
 						</td>
 					</tr>
@@ -149,7 +149,7 @@ $(document).ready(function(){
 							<label>Defect Created On :</label>							
 						</td>
 						<td>
-							<form:input type="date" path="defectCreationDate" required="true"/>
+							<form:input type="date" path="defectCreationDate"  required="true" /> <span class="required-field">  </span>
 							<form:errors path="defectCreationDate" cssClass="error" />
 						</td>
 						<td>
@@ -191,7 +191,7 @@ $(document).ready(function(){
 						</td>
 						<td>							
 							<form:input path="impactedComponent"
-								placeholder="Impacted Components" required="true"/>
+								placeholder="Impacted Components" required="true" /> <span class="required-field">  </span>
 								<form:errors path="impactedComponent" cssClass="error" />
 						</td>
 						<td>
@@ -199,7 +199,7 @@ $(document).ready(function(){
 						</td>
 						<td>
 							<form:input path="deploymentPackageLocation"
-								placeholder="Paste link" required="true"/>
+								placeholder="Paste link" required="true" /> <span class="required-field">  </span>
 								<form:errors path="deploymentPackageLocation" cssClass="error" />
 						</td>
 					</tr>
@@ -228,7 +228,7 @@ $(document).ready(function(){
 							<label>Review Date :</label>
 						</td>
 						<td colspan="3">							
-							<form:input type="date"  class="form-control" path="reviewDate"/>
+							<form:input type="date"  path="reviewDate"/>
 							<form:errors path="reviewDate" cssClass="error" />
 						</td>
 					</tr>
@@ -237,8 +237,8 @@ $(document).ready(function(){
 							<label>Description :</label>
 						</td>
 						<td colspan="3">
-							<form:textarea class="form-control" rows="4" cols="50"
-								path="description" required="true"/>
+							<form:textarea rows="4" cols="50"
+								path="description" required ="true"/> <span class="required-field">  </span>								
 								<form:errors path="description" cssClass="error" />
 						</td>					
 					</tr>
