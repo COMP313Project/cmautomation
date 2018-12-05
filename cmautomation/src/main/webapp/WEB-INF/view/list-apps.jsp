@@ -81,13 +81,18 @@
 									<!-- display the update link -->
 									<a href="${updateLink}">Update</a>
 								</security:authorize>
-							</td>
-							<td> 
+							</td>					 
+							
 								<security:authorize access="hasRole('ADMIN')">
-									<a href="${deleteLink}"
-										onclick="if (!(confirm('Are you sure you want to delete?'))) return false">Delete</a>
-								</security:authorize>
-							</td>
+									<c:if test="${empty tempApplication.getDefectFixDetail()}">
+										<td><a href="${deleteLink}"
+											onclick="if (!(confirm('Are you sure you want to delete?'))) return false">Delete</a></td>										
+									</c:if>
+									<c:if test="${not empty tempApplication.getDefectFixDetail()}">								
+										<td>Delete</td>								
+									</c:if>	
+								</security:authorize>					
+													
 						</security:authorize>
 					</tr>
 				</c:forEach>

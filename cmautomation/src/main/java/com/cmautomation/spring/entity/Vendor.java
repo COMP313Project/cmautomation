@@ -37,16 +37,20 @@ public class Vendor {
 	@OneToMany(mappedBy="vendor",cascade= {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 	private List<DefectFixDetail> defectFixDetail;
 	
+	@OneToMany(mappedBy="vendor",cascade= {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	private List<Application> applicationList;
+	
 	public Vendor() {
 		
 	}
 
 
-	public Vendor(int vendor_Id, String vendorName, List<DefectFixDetail> defectFixDetail) {
+	public Vendor(int vendor_Id, String vendorName, List<DefectFixDetail> defectFixDetail, List<Application> applicationList) {
 		
 		this.vendor_Id = vendor_Id;
 		this.vendorName = vendorName;
 		this.defectFixDetail = defectFixDetail;
+		this.applicationList = applicationList;
 	}
 
 
@@ -56,6 +60,14 @@ public class Vendor {
 			}
 		defectFixDetail.add(theDefectFixDetail);
 	}
+	
+	public void addApplication(Application theApplication) {
+		if(applicationList==null) {
+			applicationList=new ArrayList<>();
+			}
+		applicationList.add(theApplication);
+	}
+	
 	public int getVendor_Id() {
 		return vendor_Id;
 	}
@@ -90,12 +102,21 @@ public class Vendor {
 	public void setDefectFixDetail(List<DefectFixDetail> defectFixDetail) {
 		this.defectFixDetail = defectFixDetail;
 	}
+	
+	public List<Application> getAapplicationList() {
+		return applicationList;
+	}
+
+	public void setApplicationList(List<Application> applicationList) {
+		this.applicationList = applicationList;
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = 1;
+		int result = 1;		
 		result = prime * result + ((defectFixDetail == null) ? 0 : defectFixDetail.hashCode());
+		result = prime * result + ((applicationList == null) ? 0 : applicationList.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((vendorName == null) ? 0 : vendorName.hashCode());
 		result = prime * result + vendor_Id;
@@ -117,6 +138,11 @@ public class Vendor {
 				return false;
 		} else if (!defectFixDetail.equals(other.defectFixDetail))
 			return false;
+		if (applicationList == null) {
+			if (other.applicationList != null)
+				return false;
+		} else if (!applicationList.equals(other.applicationList))
+			return false;
 		if (description == null) {
 			if (other.description != null)
 				return false;
@@ -135,7 +161,7 @@ public class Vendor {
 
 	@Override
 	public String toString() {
-		return "Vendor [vendorid=" + vendor_Id + ", vendorName=" + vendorName + ", Description "+description+"]";
+		return "Vendor [vendorid=" + vendor_Id + ", vendorName=" + vendorName + ", Description= "+description+"]";
 	}
 	
 
