@@ -33,6 +33,17 @@ public class VendorDAOImpl implements VendorDAO {
 
 		// execute query and get result list
 		List<Vendor> vendors = theQuery.getResultList();
+		
+		for(Vendor v: vendors)
+		{			
+			if(v.getAapplicationList().size()>0)
+			{
+				
+				
+			}
+		}
+		
+		
 
 		// return the results
 		return vendors;
