@@ -25,6 +25,11 @@ import com.cmautomation.spring.entity.Vendor;
 import com.cmautomation.spring.service.ApplicationService;
 import com.cmautomation.spring.service.VendorService;
 
+
+/*
+ * This controller class deals with the application component of the app
+ * 
+ * */
 @Controller
 @RequestMapping("/admin")
 public class AdminController {

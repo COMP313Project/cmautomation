@@ -9,6 +9,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.cmautomation.spring.dao.DefectFixDetailDAO;
 import com.cmautomation.spring.entity.DefectFixDetail;
 
+/*
+ * This class serves as service layer of MVC and handles business logic of the application
+ * and communicate to DefectFixDetail controller
+ * 
+ * 
+ * */
 @Service
 public class DefectFixDetailServiceImpl implements DefectFixDetailService {
 

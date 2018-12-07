@@ -11,6 +11,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 
 
+/*
+ * This class sonfigures the security settings of the application, which 
+ * includes, JDBC authentication and url mapping
+ * 
+ * 
+ * */
 @Configuration
 @EnableWebSecurity
 public class CMAppSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -18,17 +24,17 @@ public class CMAppSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private DataSource securityDataSource;
 
+	// sets the JDBC authentication to the security datasource
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 		//use jdbc authentication
 		auth.jdbcAuthentication().dataSource(securityDataSource);
 	}
+	// URL mapping for application
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		
-		//.antMatchers("/").access("hasRole('USER')")
 		.antMatchers("/").hasAnyRole("CMA","QA","TSA","ADMIN")// to excludse 'user' role
 		.antMatchers("/cma/**").hasAnyRole("CMA","QA","TSA")
 		.antMatchers("/admin/**").hasRole("ADMIN")

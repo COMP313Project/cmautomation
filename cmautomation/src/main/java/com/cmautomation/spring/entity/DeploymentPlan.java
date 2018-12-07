@@ -14,7 +14,9 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.format.annotation.DateTimeFormat;
 
-
+/*
+ * This is the entity class for the DeploymentPlan which maps DeploymentPlan table in the database
+ * */
 
 @Entity
 @Table(name="deploymentplan")

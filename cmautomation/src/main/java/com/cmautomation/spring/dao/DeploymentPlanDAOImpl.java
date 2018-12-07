@@ -11,12 +11,18 @@ import org.springframework.stereotype.Repository;
 import com.cmautomation.spring.entity.DefectFixDetail;
 import com.cmautomation.spring.entity.DeploymentPlan;
 
+/*
+ * This Data access layer inherits from DeploymentPlanDAO, and communicates with Database with 
+ * CRUD operation for Application for CMA User 
+ * 
+ * */
 @Repository
 public class DeploymentPlanDAOImpl implements DeploymentPlanDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	//list all the deployment plan
 	@Override
 	public List<DeploymentPlan> getDeploymentPlanList() {
 
@@ -32,6 +38,8 @@ public class DeploymentPlanDAOImpl implements DeploymentPlanDAO {
 		return deploymentPlanList;
 	}
 
+	
+	// save the deployment plan
 	@Override
 	public void saveDeploymentPlan(DeploymentPlan theDeploymentPlan) {
 		
@@ -40,7 +48,7 @@ public class DeploymentPlanDAOImpl implements DeploymentPlanDAO {
 		
 		currentSession.saveOrUpdate(theDeploymentPlan);
 	}
-	
+	// get the deployment plan by deployment ID
 	@Override
 	public  DeploymentPlan getDeploymentPlan(int deployment_Id) {
 		// get the current hibernate session

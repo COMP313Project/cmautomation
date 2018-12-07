@@ -10,6 +10,12 @@ import org.springframework.stereotype.Repository;
 
 import com.cmautomation.spring.entity.Application;
 
+/*
+ * This Data access layer inherits from ApplicationDAO, and communicates with Database with 
+ * CRUD operation for Application for ADMIN User 
+ * 
+ * */
+
 @Repository
 public class ApplicationDAOImpl implements ApplicationDAO {
 

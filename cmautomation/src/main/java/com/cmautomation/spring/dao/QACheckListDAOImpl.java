@@ -12,12 +12,19 @@ import com.cmautomation.spring.entity.DeploymentCheckList;
 import com.cmautomation.spring.entity.QACheckList;
 import com.cmautomation.spring.entity.QACompositeKeyId;
 
+/*
+ * This Data access layer inherits from QAChecklistDAO, and communicates with Database with 
+ * CRUD operation for Application for QA User 
+ * 
+ * */
+
 @Repository
 public class QACheckListDAOImpl implements QACheckListDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	// list all QA checklists
 	@Override
 	public List<QACheckList> getQACheckList() {
 
@@ -33,9 +40,7 @@ public class QACheckListDAOImpl implements QACheckListDAO {
 		qaCheckList = assignViewStatus(qaCheckList);
 
 		return qaCheckList;
-
 	}
-	
 
 	//Assign view property for status
 		private List<QACheckList> assignViewStatus(List<QACheckList> qaCheckLists)
@@ -63,6 +68,7 @@ public class QACheckListDAOImpl implements QACheckListDAO {
 			return qaCheckList;
 		}
 
+		// saves a qa checklist
 	@Override
 	public void saveQACheckList(QACheckList qaCheckList) {
 
@@ -72,6 +78,7 @@ public class QACheckListDAOImpl implements QACheckListDAO {
 		currentSession.saveOrUpdate(qaCheckList);
 	}
 
+	// get a QA checklist by ID
 	@Override
 	public QACheckList getQACheckListDetail(int qaComp_Id) {
 		// get the current hibernate session
@@ -83,6 +90,7 @@ public class QACheckListDAOImpl implements QACheckListDAO {
 		return qaCheckList;
 	}
 
+	// delete QA checklist
 	@Override
 	public void deleteQaCheckList(int qaComp_Id) {
 		// get the current hibernate session

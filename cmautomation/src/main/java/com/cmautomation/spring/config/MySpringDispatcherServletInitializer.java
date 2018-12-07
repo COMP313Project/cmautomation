@@ -2,11 +2,15 @@ package com.cmautomation.spring.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+/*
+ * This class binds the APPconfig class to the root config class
+ * 
+ * */
+
 public class MySpringDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		//return new Class[] {CMAppSecurityConfig.class };
 		return null;
 	}
 

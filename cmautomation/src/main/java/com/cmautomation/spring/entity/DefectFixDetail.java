@@ -16,6 +16,9 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.format.annotation.DateTimeFormat;
 
+/*
+ * This is the entity class for the DefectFixDetail which maps DefectFixDetail table in the database
+ * */
 @Entity
 @Table(name="defect_fix_detail")
 public class DefectFixDetail {

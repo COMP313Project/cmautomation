@@ -22,30 +22,22 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+/*
+ * This is the entity class for the QACheckList which maps QACheckList table in the database
+ * */
 @Entity
 @Table(name="qachecklist")
-//@IdClass(QACompositeKeyId.class)
 public class QACheckList implements Serializable{
-	// need to add composite primary keys
 	
-	//@EmbeddedId
-	//private QACompositeKeyId qaCompositeKeyId;
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name="qachecklist_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer qachecklist_id; 
-
-
 	
 	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},fetch=FetchType.EAGER)
 	@JoinColumn(name="deployment_Id", updatable=true)
 	private DeploymentPlan deploymentPlan;	
-	
 		
 	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},fetch=FetchType.EAGER)
 	@JoinColumn(name="environment_Id", updatable=true )

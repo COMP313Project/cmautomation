@@ -26,6 +26,12 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
+/*
+ * This Class is the main configuration file of the project. It includes
+ * View Resolver, Persistence Translation processor, Default servlet configurer, Hibernate
+ * configuration, security and datasource properties.
+ * */
+
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
@@ -47,16 +53,19 @@ public class CMAppConfig implements WebMvcConfigurer{
 		viewResolver.setSuffix(".jsp");
 		return viewResolver;
 	}
+	// Translate hibernate exceptions into spring exception
 	 @Bean
 	   public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
 	      return new PersistenceExceptionTranslationPostProcessor();
 	   }
 	
+	 // configure default dispatcher servlet for the application 
 	 @Override
 	 public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 	        configurer.enable();
 	 }
 	
+	 // configure hibernate transaction manager
 	@Bean
 	@Autowired
 	public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
@@ -68,7 +77,7 @@ public class CMAppConfig implements WebMvcConfigurer{
 		return txManager;
 	}	
 
-	//set up factory bean
+	//set up the local session factory bean
 	@Bean
 	public LocalSessionFactoryBean sessionFactory() {
 		//create session factory
@@ -113,7 +122,7 @@ public class CMAppConfig implements WebMvcConfigurer{
 
 		return myDataSource;
 	}
-	
+	// set hibernate properties
 	private Properties getHibernateProperties() {
 
 		// set hibernate properties

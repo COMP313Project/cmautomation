@@ -10,6 +10,12 @@ import org.springframework.stereotype.Repository;
 
 import com.cmautomation.spring.entity.DefectFixDetail;
 
+/*
+ * This Data access layer inherits from DefectFixDetailDAO, and communicates with Database with 
+ * CRUD operation for DefectFixDetail for CMA User 
+ * 
+ * */
+
 @Repository
 public class DefectFixDetailDAOImpl implements DefectFixDetailDAO {
 
