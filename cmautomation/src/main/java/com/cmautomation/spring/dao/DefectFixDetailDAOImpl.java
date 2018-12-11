@@ -9,12 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.cmautomation.spring.entity.DefectFixDetail;
+import com.cmautomation.spring.entity.DeploymentPlan;
 
 @Repository
 public class DefectFixDetailDAOImpl implements DefectFixDetailDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	@Autowired
+	private DeploymentPlanDAO deploymentPlanDAO;
 
 	@Override
 	public List<DefectFixDetail> getDefectList() {
@@ -29,6 +33,7 @@ public class DefectFixDetailDAOImpl implements DefectFixDetailDAO {
 		List<DefectFixDetail> defectFixDetailList = theQuery.getResultList();
 		
 		defectFixDetailList = assignViewStatus(defectFixDetailList);
+		defectFixDetailList = assignIsUsedInDdeploymentPlan(defectFixDetailList);
 
 		return defectFixDetailList;
 	}
@@ -39,13 +44,10 @@ public class DefectFixDetailDAOImpl implements DefectFixDetailDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 
 		// create a query
-		Query<DefectFixDetail> theQuery = currentSession.getNamedSQLQuery("select df from DefectFixDetail df where df.defect_Id not in(select defect_Id from cm_automation.deployement_defectlist)");
+		Query<DefectFixDetail> theQuery = currentSession.getNamedNativeQuery("getNotDeployedDefectListSQL");
 
 		// execute query and get result list
 		List<DefectFixDetail> defectFixDetailList = theQuery.getResultList();
-		
-		DefectFixDetail defect= defectFixDetailList.get(0);
-		
 		
 		return defectFixDetailList;
 	}
@@ -61,6 +63,26 @@ public class DefectFixDetailDAOImpl implements DefectFixDetailDAO {
 		
 		return defects;
 	}
+	
+	//Assign no of uses in deployment plan
+		private List<DefectFixDetail> assignIsUsedInDdeploymentPlan(List<DefectFixDetail> defects)
+		{
+			for(int i=0; i<defects.size();i++)
+			{
+				Integer deploymentPlanCount= deploymentPlanDAO.getDeploymentPlanCountByDefectId(defects.get(i).getDefect_Id());
+				
+				if(deploymentPlanCount>0)
+				{				
+					defects.get(i).setIsUsedInDdeploymentPlan(true);
+				}
+				else {
+					defects.get(i).setIsUsedInDdeploymentPlan(false);
+				}
+			}
+			
+			return defects;
+		}
+	
 	
 	//Assign view property for status
 	private DefectFixDetail assignViewStatus(DefectFixDetail defect)
@@ -164,7 +186,4 @@ public class DefectFixDetailDAOImpl implements DefectFixDetailDAO {
 
 		return listDefects;
 	}
-	
-	
-
 }

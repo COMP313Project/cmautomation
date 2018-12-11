@@ -14,7 +14,13 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.format.annotation.DateTimeFormat;
 
-
+@NamedNativeQueries({
+	@NamedNativeQuery(
+	name = "getDeploymentPlanCountByDefectIdSQL",	
+	query = "SELECT A.* FROM cm_automation.deploymentplan as A join cm_automation.deployement_defectlist as B on A.deployment_Id=B.deployement_Id  where B.defect_Id=:defect_Id",
+        resultClass = DeploymentPlan.class
+	)
+})
 
 @Entity
 @Table(name="deploymentplan")
@@ -76,14 +82,7 @@ public class DeploymentPlan {
 	@Lob
 	@Column(name="comment")
 	private String comment;
-	
-	/*@OneToMany(cascade={CascadeType.ALL})
-	@LazyCollection(LazyCollectionOption.FALSE)
-	@JoinTable(name="deployement_defectlist",
-			   joinColumns=@JoinColumn(name="deployement_Id"),
-			   inverseJoinColumns=@JoinColumn(name="defect_Id"))
-	private List<DeploymentDefectList> listDeploymentDefects;*/
-	
+			
 	@NotNull(message="required")
 	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     @JoinTable(name = "deployement_defectlist",

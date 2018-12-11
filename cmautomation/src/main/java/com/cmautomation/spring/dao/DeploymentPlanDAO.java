@@ -16,5 +16,7 @@ public interface DeploymentPlanDAO {
 	
 
 	public List<DeploymentPlan> searchDeploymentPlan(String theSearchName);
+	
+	public Integer getDeploymentPlanCountByDefectId(int defect_Id);
 
 }

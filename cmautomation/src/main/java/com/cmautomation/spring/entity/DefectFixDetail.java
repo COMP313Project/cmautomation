@@ -16,6 +16,15 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.format.annotation.DateTimeFormat;
 
+
+@NamedNativeQueries({
+	@NamedNativeQuery(
+	name = "getNotDeployedDefectListSQL",	
+	query = "select * from defect_fix_detail df where df.defect_Id not in(select defect_Id from deployement_defectlist)",
+        resultClass = DefectFixDetail.class
+	)
+})
+
 @Entity
 @Table(name="defect_fix_detail")
 public class DefectFixDetail {
@@ -42,7 +51,6 @@ public class DefectFixDetail {
 	@Column(name="defectCreationDate")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	//@FutureOrPresent
 	private Date defectCreationDate;
 	
 	@NotNull(message="required")
@@ -55,8 +63,7 @@ public class DefectFixDetail {
 	private Integer dependentDefect_Id;
 	
 	@Column(name="status")
-	private int status;
-	
+	private int status;	
 	
 	@Column(name="fixRecieveDate")
 	@Temporal(TemporalType.DATE)
@@ -78,37 +85,19 @@ public class DefectFixDetail {
 	private int isTestCaseprovided;
 	
 	@Column(name="isDeploymentInstructionProvided")
-	private int isDeploymentInstructionProvided;
-	
+	private int isDeploymentInstructionProvided;	
 	
 	@Column(name="reviewDate")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date reviewDate;
-	
-	/*@OneToMany(cascade={CascadeType.ALL})
-	@LazyCollection(LazyCollectionOption.FALSE)
-	@JoinTable(name="deployement_defectlist",
-			   joinColumns=@JoinColumn(name="defect_Id"),
-			   inverseJoinColumns=@JoinColumn(name="deployement_Id"))
-	private List<DeploymentPlan> listDeploymentPlan;*/
-	
-	@ManyToMany(fetch = FetchType.LAZY,
-            cascade = {
-                CascadeType.PERSIST,
-                CascadeType.MERGE
-            },
-            mappedBy = "listDeploymentDefects")
-	private List<DeploymentPlan> listDeploymentPlan;
-	
+	private Date reviewDate;	
+		
+		
 	
 	public DefectFixDetail() {
 		
-	}
+	}	
 	
-	
-	
-
 	@Transient
 	private String viewStatus;
 	
@@ -119,190 +108,128 @@ public class DefectFixDetail {
 		this.viewStatus = viewStatus;
 	}
 	
+	@Transient
+	private Boolean usedInDdeploymentPlan;
+	
+	public Boolean  getIsUsedInDdeploymentPlan() {
+		return usedInDdeploymentPlan;
+	}
+	public void setIsUsedInDdeploymentPlan(Boolean usedInDdeploymentPlan) {
+		this.usedInDdeploymentPlan = usedInDdeploymentPlan;
+	}
+	
 	public Integer getDefect_Id() {
 		return defect_Id;
 	}
-
 
 	public void setDefect_Id(Integer defect_Id) {
 		this.defect_Id = defect_Id;
 	}
 
-
 	public String getTitle() {
 		return title;
 	}
-
-
 
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
-
-
 	public Application getApplication() {
 		return application;
 	}
-
-
 
 	public void setApplication(Application application) {
 		this.application = application;
 	}
 
-
-
 	public Vendor getVendor() {
 		return vendor;
 	}
-
-
 
 	public void setVendor(Vendor vendor) {
 		this.vendor = vendor;
 	}
 
-
-
 	public Date getDefectCreationDate() {
 		return defectCreationDate;
 	}
-
-
 
 	public void setDefectCreationDate(Date defectCreationDate) {
 		this.defectCreationDate = defectCreationDate;
 	}
 
-
-
 	public String getDescription() {
 		return description;
 	}
-
-
 
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
-
-
 	public Integer getDependentDefect_Id() {
 		return dependentDefect_Id;
 	}
-
-
 
 	public void setDependentDefect_Id(Integer dependentDefect_Id) {
 		this.dependentDefect_Id = dependentDefect_Id;
 	}
 
-
-
 	public int getStatus() {
 		return status;
 	}
-
-
 
 	public void setStatus(int status) {
 		this.status = status;
 	}
 
-
-
 	public Date getFixRecieveDate() {
 		return fixRecieveDate;
 	}
-
-
 
 	public void setFixRecieveDate(Date fixRecieveDate) {
 		this.fixRecieveDate = fixRecieveDate;
 	}
 
-
-
 	public String getImpactedComponent() {
 		return impactedComponent;
 	}
-
-
 
 	public void setImpactedComponent(String impactedComponent) {
 		this.impactedComponent = impactedComponent;
 	}
 
-
-
 	public String getDeploymentPackageLocation() {
 		return deploymentPackageLocation;
 	}
-
-
 
 	public void setDeploymentPackageLocation(String deploymentPackageLocation) {
 		this.deploymentPackageLocation = deploymentPackageLocation;
 	}
 
-
-
 	public int getIsTestCaseprovided() {
 		return isTestCaseprovided;
 	}
-
-
 
 	public void setIsTestCaseprovided(int isTestCaseprovided) {
 		this.isTestCaseprovided = isTestCaseprovided;
 	}
 
-
-
 	public int getIsDeploymentInstructionProvided() {
 		return isDeploymentInstructionProvided;
 	}
-
-
 
 	public void setIsDeploymentInstructionProvided(int isDeploymentInstructionProvided) {
 		this.isDeploymentInstructionProvided = isDeploymentInstructionProvided;
 	}
 
-
-
 	public Date getReviewDate() {
 		return reviewDate;
 	}
 
-
-
 	public void setReviewDate(Date reviewDate) {
 		this.reviewDate = reviewDate;
 	}
-	/*//convenience method
-	public void addDeploymentPlan(DeploymentPlan theDeploymentPlan) {
-		if(listDeploymentPlan==null) {
-			listDeploymentPlan=new ArrayList();
-		}
-		listDeploymentPlan.add(theDeploymentPlan);
-	}
 	
-*/
-	public List<DeploymentPlan> getListDeploymentPlan() {
-		return listDeploymentPlan;
-	}
-
-	public void setListDeploymentPlan(List<DeploymentPlan> listDeploymentPlan) {
-		this.listDeploymentPlan = listDeploymentPlan;
-	}
-
-	
-	
-
-
 	@Override
 	public String toString() {
 		return "DefectFixDetail [defect_Id=" + defect_Id + ", title=" + title + ", application=" + application
@@ -313,7 +240,6 @@ public class DefectFixDetail {
 				+ ", isDeploymentInstructionProvided=" + isDeploymentInstructionProvided + ", reviewDate=" + reviewDate
 				+ "]";
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -335,7 +261,6 @@ public class DefectFixDetail {
 		result = prime * result + ((vendor == null) ? 0 : vendor.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -408,7 +333,5 @@ public class DefectFixDetail {
 		} else if (!vendor.equals(other.vendor))
 			return false;
 		return true;
-	}
-	
-	
+	}	
 }

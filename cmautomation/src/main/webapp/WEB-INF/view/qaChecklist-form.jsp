@@ -41,6 +41,7 @@
 			<form:form method="POST" action="saveQACheckList"
 						modelAttribute="theQACheckListDetail">
 						<!-- associate this data with Defect id -->
+		<form:hidden path="qachecklist_id" />	
 		<table>
 				<tbody>					 
 					<tr>

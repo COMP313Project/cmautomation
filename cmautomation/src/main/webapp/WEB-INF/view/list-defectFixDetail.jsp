@@ -117,11 +117,17 @@ $(document).ready(function() {
 										</security:authorize> 
 										
 										</td>
-										<td>
-										<security:authorize access="hasRole('CMA')">
-											<a href="${deleteLink}"
-												onclick="if (!(confirm('Are you sure you want to delete?'))) return false">Delete</a>
-										</security:authorize></td>
+										
+								<security:authorize access="hasRole('CMA')">
+									<c:if test="${tempDefectList.getIsUsedInDdeploymentPlan()==false}">
+										<td><a href="${deleteLink}"
+												onclick="if (!(confirm('Are you sure you want to delete?'))) return false">Delete</a></td>									
+									</c:if>
+									<c:if test="${tempDefectList.getIsUsedInDdeploymentPlan()==true}">								
+										<td>Delete</td>								
+									</c:if>	
+								</security:authorize>
+									
 								</security:authorize>
 								
 								<security:authorize access="hasAnyRole('QA','TSA')">
