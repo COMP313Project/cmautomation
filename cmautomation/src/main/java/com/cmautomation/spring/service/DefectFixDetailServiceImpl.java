@@ -9,6 +9,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.cmautomation.spring.dao.DefectFixDetailDAO;
 import com.cmautomation.spring.entity.DefectFixDetail;
 
+/*
+ * This class serves as service layer of MVC and handles business logic of the application
+ * and communicate to DefectFixDetail controller
+ * 
+ * 
+ * */
 @Service
 public class DefectFixDetailServiceImpl implements DefectFixDetailService {
 
@@ -24,15 +30,16 @@ public class DefectFixDetailServiceImpl implements DefectFixDetailService {
 	}
 	
 	// to get the list of defects
-	@Override
-	@Transactional
-	public List<DefectFixDetail> getNotDeployedDefectList(){
+		@Override
+		@Transactional
+		public List<DefectFixDetail> getNotDeployedDefectList(){
 			
-		return defectFixDetailDAO.getNotDeployedDefectList();
-	}
+			return defectFixDetailDAO.getNotDeployedDefectList();
+		}
 
-		
-	// save a new Defect
+	
+	
+	// save a new entry
 	@Override
 	@Transactional
 	public void saveDefectFixDetail(DefectFixDetail theDefectFixDetail) {
@@ -49,8 +56,6 @@ public class DefectFixDetailServiceImpl implements DefectFixDetailService {
 		return defectFixDetailDAO.getDefectFixDetail(defectId);
 	}
 
-	
-	//Delete Defect(Should not be implemented)
 	@Override
 	@Transactional
 	public void deleteDefectFixDetail(int defectId) {

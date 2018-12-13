@@ -9,6 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 import com.cmautomation.spring.dao.DeploymentPlanDAO;
 import com.cmautomation.spring.entity.DeploymentPlan;
 
+
+/*
+ * This class serves as service layer of MVC and handles business logic of the application
+ * and communicate to DeploymentPlan controller
+ * 
+ * 
+ * */
 @Service
 public class DeploymentPlanServiceImpl implements DeploymentPlanService {
 

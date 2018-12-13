@@ -28,63 +28,63 @@
 	src="<c:url value="https://code.jquery.com/jquery-3.3.1.min.js" />"></script>
 	
 <script>
-  $(document).ready(function(){
-	        $("#status").change(function(){
-	        	var previousStatus= $("#hiddenStatus").val();
-	        	
-	        	var newStatus=$(this).val();
-	        	
-	        	if(previousStatus>newStatus)
-	        	{
-	        		alert("Status is not valid");
-	        		$(this).val(previousStatus);
-	        	}     
-	        });
-	        
-	        $("#defectCreationDate").change(function(){
-	        	
-	        	var objDate = new Date();
-	        	var defectCreationDate = $("#defectCreationDate").val();
-	        	
-	        	var fixRecieveDate=$("#fixRecieveDate").val();
-	        	
-	        	if(fixRecieveDate!=null && fixRecieveDate!='' && defectCreationDate!=null && defectCreationDate!='' && defectCreationDate>fixRecieveDate)
-	        	{
-	        		alert("FixRecieveDate can not be earlier than DefectCreationDate");
-	        		$("#defectCreationDate").val("");
-	        	}     
-	        });
-	        
- 			 $("#fixRecieveDate").change(function(){
-	        	
-	        	var objDate = new Date();
-	        	var defectCreationDate = $("#defectCreationDate").val();
-	        	
-	        	var fixRecieveDate=$("#fixRecieveDate").val();
-	        	
-	        	if(fixRecieveDate!=null && defectCreationDate!=null && fixRecieveDate!='' && defectCreationDate!='' && defectCreationDate>fixRecieveDate)
-	        	{
-	        		alert("FixRecieveDate can not be earlier than DefectCreationDate");
-	        		$("#fixRecieveDate").val("");
-	        	}     
-	        });
- 			 
- 			 
- 			 $("#reviewDate").change(function(){
-	        	
-	        	var objDate = new Date();
-	        	var reviewDate = $("#reviewDate").val();
-	        	
-	        	var fixRecieveDate=$("#fixRecieveDate").val();
-	        	
-	        	if(fixRecieveDate!=null && reviewDate!=null && fixRecieveDate!='' && reviewDate!='' && fixRecieveDate>reviewDate)
-	        	{
-	        		alert("Review Date can not be earlier than Fix Recieve Date");
-	        		$("#reviewDate").val("");
-	        	}     
-	        });
-	    })
-	
+$(document).ready(function(){
+    $("#status").change(function(){
+    	var previousStatus= $("#hiddenStatus").val();
+    	
+    	var newStatus=$(this).val();
+    	
+    	if(previousStatus>newStatus)
+    	{
+    		alert("Status is not valid");
+    		$(this).val(previousStatus);
+    	}     
+    });
+    
+    $("#defectCreationDate").change(function(){
+    	
+    	var objDate = new Date();
+    	var defectCreationDate = $("#defectCreationDate").val();
+    	
+    	var fixRecieveDate=$("#fixRecieveDate").val();
+    	
+    	if(fixRecieveDate!=null && fixRecieveDate!='' && defectCreationDate!=null && defectCreationDate!='' && defectCreationDate>fixRecieveDate)
+    	{
+    		alert("FixRecieveDate can not be earlier than DefectCreationDate");
+    		$("#defectCreationDate").val("");
+    	}     
+    });
+    
+		 $("#fixRecieveDate").change(function(){
+    	
+    	var objDate = new Date();
+    	var defectCreationDate = $("#defectCreationDate").val();
+    	
+    	var fixRecieveDate=$("#fixRecieveDate").val();
+    	
+    	if(fixRecieveDate!=null && defectCreationDate!=null && fixRecieveDate!='' && defectCreationDate!='' && defectCreationDate>fixRecieveDate)
+    	{
+    		alert("FixRecieveDate can not be earlier than DefectCreationDate");
+    		$("#fixRecieveDate").val("");
+    	}     
+    });
+		 
+		 
+		 $("#reviewDate").change(function(){
+    	
+    	var objDate = new Date();
+    	var reviewDate = $("#reviewDate").val();
+    	
+    	var fixRecieveDate=$("#fixRecieveDate").val();
+    	
+    	if(fixRecieveDate!=null && reviewDate!=null && fixRecieveDate!='' && reviewDate!='' && fixRecieveDate>reviewDate)
+    	{
+    		alert("Review Date can not be earlier than Fix Recieve Date");
+    		$("#reviewDate").val("");
+    	}     
+    });
+})
+
 </script>
 
 <style>
@@ -118,7 +118,7 @@
 							<label>Title :</label>
 						</td>
 						<td colspan="3">
-							<form:input path="title" placeholder="Defect Title" required="true"/>
+							<form:input path="title" placeholder="Defect Title" required="true" /> <span class="required-field">  </span>
 							<form:errors path="title" cssClass="error" />
 						</td>
 					</tr>
@@ -149,7 +149,7 @@
 							<label>Defect Created On :</label>							
 						</td>
 						<td>
-							<form:input type="date" path="defectCreationDate" required="true"/>
+							<form:input type="date" path="defectCreationDate"  required="true" /> <span class="required-field">  </span>
 							<form:errors path="defectCreationDate" cssClass="error" />
 						</td>
 						<td>
@@ -191,7 +191,7 @@
 						</td>
 						<td>							
 							<form:input path="impactedComponent"
-								placeholder="Impacted Components" required="true"/>
+								placeholder="Impacted Components" required="true" /> <span class="required-field">  </span>
 								<form:errors path="impactedComponent" cssClass="error" />
 						</td>
 						<td>
@@ -199,7 +199,7 @@
 						</td>
 						<td>
 							<form:input path="deploymentPackageLocation"
-								placeholder="Paste link" required="true"/>
+								placeholder="Paste link" required="true" /> <span class="required-field">  </span>
 								<form:errors path="deploymentPackageLocation" cssClass="error" />
 						</td>
 					</tr>
@@ -228,7 +228,7 @@
 							<label>Review Date :</label>
 						</td>
 						<td colspan="3">							
-							<form:input type="date"  class="form-control" path="reviewDate"/>
+							<form:input type="date"  path="reviewDate"/>
 							<form:errors path="reviewDate" cssClass="error" />
 						</td>
 					</tr>
@@ -237,8 +237,8 @@
 							<label>Description :</label>
 						</td>
 						<td colspan="3">
-							<form:textarea class="form-control" rows="4" cols="50"
-								path="description" required="true"/>
+							<form:textarea rows="4" cols="50"
+								path="description" required ="true"/> <span class="required-field">  </span>								
 								<form:errors path="description" cssClass="error" />
 						</td>					
 					</tr>

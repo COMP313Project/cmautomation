@@ -11,12 +11,19 @@ import org.springframework.stereotype.Repository;
 import com.cmautomation.spring.entity.DefectFixDetail;
 import com.cmautomation.spring.entity.DeploymentCheckList;
 
+/*
+ * This Data access layer inherits from DeploymentCheckListDAO, and communicates with Database with 
+ * CRUD operation for Application for  TSA User 
+ * 
+ * */
+
 @Repository
 public class DeploymentCheckListDAOImpl implements DeploymentCheckListDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	//list all the deployment checklist
 	@Override
 	public List<DeploymentCheckList> getDeploymentCheckList() {
 

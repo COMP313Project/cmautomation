@@ -74,7 +74,7 @@
 							<label>Test Date :</label>
 						</td>
 						<td>
-							<form:input  class="form-control" type="date" path="testDate" required="true" />
+							<form:input   type="date" path="testDate" required="true" /><span class="required-field">  </span>
 							<form:errors path="testDate" cssClass="error" />
 						</td>
 					</tr>
@@ -92,7 +92,7 @@
 							<label>Tested by:</label>
 						</td>
 						<td>
-							<form:input path="testedBy"  class="form-control" type="text" required="true" />
+							<form:input path="testedBy"  type="text" required="true" /><span class="required-field">  </span>
 							<form:errors path="testedBy" cssClass="error" />
 						</td>
 						
@@ -102,8 +102,8 @@
 							<label>Comment :</label>
 						</td>
 						<td colspan="3">
-							<form:textarea class="form-control" rows="3" cols="30"
-								path="comment" required="true" />
+							<form:textarea rows="3" cols="30"
+								path="comment" required="true" /><span class="required-field">  </span>
 							<form:errors path="comment" cssClass="error" />
 						</td>
 					</tr>

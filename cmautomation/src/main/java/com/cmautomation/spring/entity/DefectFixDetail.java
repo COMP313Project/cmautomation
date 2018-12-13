@@ -17,6 +17,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
+
 @NamedNativeQueries({
 	@NamedNativeQuery(
 	name = "getNotDeployedDefectListSQL",	
@@ -24,6 +25,11 @@ import org.springframework.format.annotation.DateTimeFormat;
         resultClass = DefectFixDetail.class
 	)
 })
+
+=======
+/*
+ * This is the entity class for the DefectFixDetail which maps DefectFixDetail table in the database
+ * */
 
 @Entity
 @Table(name="defect_fix_detail")
@@ -67,7 +73,7 @@ public class DefectFixDetail {
 	
 	@Column(name="fixRecieveDate")
 	@Temporal(TemporalType.DATE)
-	@FutureOrPresent
+	//@FutureOrPresent
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date fixRecieveDate;
 	

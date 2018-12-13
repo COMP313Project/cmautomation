@@ -44,14 +44,13 @@
 				<tbody>					
 					<tr>
 						<td><label>Environment Name:</label></td>
-						<td><form:input path="environmentName"  class="form-control" required="true"/></td>
+						<td><form:input path="environmentName" required="true" /><span class="required-field">  </span></td>
 						<td><form:errors path="environmentName" cssClass="error" /></td>
 												
 					</tr>
 					<tr>
 						<td><label>Description:</label></td>
-						<td><form:textarea path="description" class="form-control" required="true" rows="3"
-								cols="50"/></td>
+						<td><form:input path="description" required="true" /><span class="required-field">  </span></td>
 						<td><form:errors path="description" cssClass="error" /></td>
 											
 					</tr>

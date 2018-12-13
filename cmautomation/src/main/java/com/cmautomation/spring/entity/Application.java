@@ -20,6 +20,9 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+/*
+ * This is the entity class for the application which maps application table in the database
+ * */
 
 @Entity
 @Table(name = "applications")

@@ -11,6 +11,12 @@ import org.springframework.stereotype.Repository;
 import com.cmautomation.spring.entity.DefectFixDetail;
 import com.cmautomation.spring.entity.DeploymentPlan;
 
+/*
+ * This Data access layer inherits from DefectFixDetailDAO, and communicates with Database with 
+ * CRUD operation for DefectFixDetail for CMA User 
+ * 
+ * */
+
 @Repository
 public class DefectFixDetailDAOImpl implements DefectFixDetailDAO {
 
@@ -147,7 +153,7 @@ public class DefectFixDetailDAOImpl implements DefectFixDetailDAO {
 		return theDefectFixDetail;
 	}
 
-	//Delete Defect(Should not be implemented)
+	// delete
 	@Override
 	public void deleteDefectFixDetail(int defectId) {
 
@@ -162,7 +168,7 @@ public class DefectFixDetailDAOImpl implements DefectFixDetailDAO {
 
 	}
 
-	//search defect by keyword or search string
+	//search
 	@Override
 	public List<DefectFixDetail> searchDefects(String theSearchName) {
 
@@ -174,7 +180,7 @@ public class DefectFixDetailDAOImpl implements DefectFixDetailDAO {
 		// search by name if theSearchName is not empty
 		if (theSearchName != null && theSearchName.trim().length() > 0) {
 		// search the defect name--case insensetive
-		searchQuery = currentSession.createQuery("from DefectFixDetail where lower(title) like:theName",DefectFixDetail.class);
+		searchQuery = currentSession.createQuery("from DefectFixDetail where lower(title) like:theName or vendor.vendorName like:theName or application.applicationName like:theName or defect_Id like:theName",DefectFixDetail.class);
 		searchQuery.setParameter("theName", "%" + theSearchName.toLowerCase() + "%");
 		} else {
 			searchQuery = currentSession.createQuery("from DefectFixDetail", DefectFixDetail.class);

@@ -14,6 +14,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+/*
+ * This entity class maps the Vendor table in the database
+ * 
+ * */
 @Entity
 @Table(name="vendor")
 public class Vendor {

@@ -24,6 +24,10 @@ import com.cmautomation.spring.service.ApplicationService;
 import com.cmautomation.spring.service.DefectFixDetailService;
 import com.cmautomation.spring.service.VendorService;
 
+/*
+ * This controller class deals with the CRUD operation for Defects
+ * 
+ * */
 @Controller
 @RequestMapping("/cma")
 public class DefectFixDetailController {
@@ -38,13 +42,13 @@ public class DefectFixDetailController {
 	@Autowired
 	private VendorService vendorService;
 
-	/*// pre-process form data and eliminates any white spaces
+	// pre-process form data and eliminates any white spaces
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
 
 		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
-	}*/
+	}
 
 	// render defect list
 	@GetMapping("/defect/list") // works fine

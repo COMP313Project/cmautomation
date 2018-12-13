@@ -9,6 +9,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.cmautomation.spring.dao.VendorDAO;
 import com.cmautomation.spring.entity.Vendor;
 
+/*
+ * This class serves as service layer of MVC and handles business logic of the application
+ * and communicate to Vendor controller
+ * 
+ * 
+ * */
 @Service
 public class VendorServiceImpl implements VendorService {
 

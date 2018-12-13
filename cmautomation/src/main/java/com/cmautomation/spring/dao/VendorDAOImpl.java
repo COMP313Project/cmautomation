@@ -10,12 +10,18 @@ import org.springframework.stereotype.Repository;
 
 import com.cmautomation.spring.entity.Vendor;
 
+/*
+ * This Data access layer inherits from VendorDAO, and communicates with Database with 
+ * CRUD operation for Vendor for ADMIN User 
+ * 
+ * */
 @Repository
 public class VendorDAOImpl implements VendorDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	// list all vendors
 	@Override
 	public List<Vendor> getVendors() {
 

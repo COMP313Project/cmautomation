@@ -9,6 +9,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.cmautomation.spring.dao.ApplicationDAO;
 import com.cmautomation.spring.entity.Application;
 
+/*
+ * This class serves as service layer of MVC and handles business logic of the application
+ * and communicate to Application controller
+ * 
+ * 
+ * */
 @Service
 public class ApplicationServiceImpl implements ApplicationService {
 

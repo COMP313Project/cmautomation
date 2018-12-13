@@ -13,6 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -24,6 +25,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+
+/*
+ * This Class is the main configuration file of the project. It includes
+ * View Resolver, Persistence Translation processor, Default servlet configurer, Hibernate
+ * configuration, security and datasource properties.
+ * */
 
 @Configuration
 @EnableWebMvc
@@ -46,12 +53,19 @@ public class CMAppConfig implements WebMvcConfigurer{
 		viewResolver.setSuffix(".jsp");
 		return viewResolver;
 	}
+	// Translate hibernate exceptions into spring exception
+	 @Bean
+	   public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
+	      return new PersistenceExceptionTranslationPostProcessor();
+	   }
 	
+	 // configure default dispatcher servlet for the application 
 	 @Override
 	 public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 	        configurer.enable();
 	 }
 	
+	 // configure hibernate transaction manager
 	@Bean
 	@Autowired
 	public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
@@ -63,13 +77,14 @@ public class CMAppConfig implements WebMvcConfigurer{
 		return txManager;
 	}	
 
-	//set up factory bean
+	//set up the local session factory bean
 	@Bean
 	public LocalSessionFactoryBean sessionFactory() {
 		//create session factory
 		LocalSessionFactoryBean sessionFactory=new LocalSessionFactoryBean();
 		//set properties
 		sessionFactory.setDataSource(myDataSource());
+		//sessionFactory.setDataSource(securityDataSource());
 		sessionFactory.setPackagesToScan(env.getProperty("hibernate.packagesToScan"));
 		sessionFactory.setHibernateProperties(getHibernateProperties());
 		return sessionFactory;
@@ -107,7 +122,7 @@ public class CMAppConfig implements WebMvcConfigurer{
 
 		return myDataSource;
 	}
-	
+	// set hibernate properties
 	private Properties getHibernateProperties() {
 
 		// set hibernate properties

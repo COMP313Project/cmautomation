@@ -14,12 +14,18 @@ import org.springframework.stereotype.Repository;
 import com.cmautomation.spring.entity.DefectFixDetail;
 import com.cmautomation.spring.entity.DeploymentPlan;
 
+/*
+ * This Data access layer inherits from DeploymentPlanDAO, and communicates with Database with 
+ * CRUD operation for Application for CMA User 
+ * 
+ * */
 @Repository
 public class DeploymentPlanDAOImpl extends Exception implements DeploymentPlanDAO{
 
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	//list all the deployment plan
 	@Override
 	public List<DeploymentPlan> getDeploymentPlanList() {
 
@@ -35,6 +41,8 @@ public class DeploymentPlanDAOImpl extends Exception implements DeploymentPlanDA
 		return deploymentPlanList;
 	}
 
+	
+	// save the deployment plan
 	@Override
 	public void saveDeploymentPlan(DeploymentPlan theDeploymentPlan) {
 		
@@ -42,8 +50,7 @@ public class DeploymentPlanDAOImpl extends Exception implements DeploymentPlanDA
 		Session currentSession = sessionFactory.getCurrentSession();
 		currentSession.saveOrUpdate(theDeploymentPlan);		   
 	}
-	
-	//GET DeploymentPlan
+	// get the deployment plan by deployment ID
 	@Override
 	public  DeploymentPlan getDeploymentPlan(int deployment_Id) {
 		// get the current hibernate session
@@ -54,7 +61,7 @@ public class DeploymentPlanDAOImpl extends Exception implements DeploymentPlanDA
 		return theDeploymentPlan;
 	}
 
-	// delete DeploymentPlan
+	// delete
 	@Override
 	public void deleteDeploymentPlan(int deployment_Id) {
 
@@ -70,7 +77,7 @@ public class DeploymentPlanDAOImpl extends Exception implements DeploymentPlanDA
 	}
 
 	
-	//search specific plan
+	//search
 	@Override
 	public List<DeploymentPlan> searchDeploymentPlan(String theSearchName) {
 

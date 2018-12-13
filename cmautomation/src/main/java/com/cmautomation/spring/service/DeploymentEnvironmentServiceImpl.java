@@ -10,6 +10,12 @@ import org.springframework.stereotype.Service;
 import com.cmautomation.spring.dao.DeploymentEnvironmentDAO;
 import com.cmautomation.spring.entity.DeploymentEnvironment;
 
+/*
+ * This class serves as service layer of MVC and handles business logic of the application
+ * and communicate to DeploymentEnvironment controller
+ * 
+ * 
+ * */
 @Service
 public class DeploymentEnvironmentServiceImpl implements DeploymentEnvironmentService {
 

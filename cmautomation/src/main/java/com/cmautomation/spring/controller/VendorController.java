@@ -20,6 +20,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.cmautomation.spring.entity.Vendor;
 import com.cmautomation.spring.service.VendorService;
 
+
+/*
+ * This controller deals with CRUD operation for ADMIN user
+ * 
+ * */
 @Controller
 @RequestMapping("/vendor")
 public class VendorController {

@@ -21,6 +21,10 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+
+/*
+ * This is the entity class for the DeploymentCheckList which maps DeploymentCheckList table in the database
+ * */
 @Entity
 @Table(name = "deploymentchecklist")
 public class DeploymentCheckList {

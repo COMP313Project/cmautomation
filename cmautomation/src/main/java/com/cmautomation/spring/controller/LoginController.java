@@ -3,6 +3,10 @@ package com.cmautomation.spring.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
+/*
+ * This controller shows Login page to any user
+ * */
 @Controller
 public class LoginController {
 

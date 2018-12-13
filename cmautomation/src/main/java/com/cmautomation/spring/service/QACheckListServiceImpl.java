@@ -9,6 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 import com.cmautomation.spring.dao.QACheckListDAO;
 import com.cmautomation.spring.entity.QACheckList;
 import com.cmautomation.spring.entity.QACompositeKeyId;
+
+/*
+ * This class serves as service layer of MVC and handles business logic of the application
+ * and communicate to QACheckList controller
+ * 
+ * 
+ * */
 @Service
 public class QACheckListServiceImpl implements QACheckListService {
 

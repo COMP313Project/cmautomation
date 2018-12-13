@@ -14,6 +14,7 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.format.annotation.DateTimeFormat;
 
+
 @NamedNativeQueries({
 	@NamedNativeQuery(
 	name = "getDeploymentPlanCountByDefectIdSQL",	
@@ -21,6 +22,11 @@ import org.springframework.format.annotation.DateTimeFormat;
         resultClass = DeploymentPlan.class
 	)
 })
+=======
+/*
+ * This is the entity class for the DeploymentPlan which maps DeploymentPlan table in the database
+ * */
+
 
 @Entity
 @Table(name="deploymentplan")
