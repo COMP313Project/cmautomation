@@ -83,7 +83,9 @@ public class DeploymentPlanController {
 
 		List<Application> applications = applicationService.getApplications();
 
-		List<DefectFixDetail> listDefectFixDetail = defectFixDetailService.getDefectList();
+		//List<DefectFixDetail> listDefectFixDetail = defectFixDetailService.getDefectList();
+		List<DefectFixDetail> listDefectFixDetail = defectFixDetailService.getNotDeployedDefectList();
+		
 
 		theDeploymentPlanModel.addAttribute("deploymentPlanDetail", theDeploymentPlan);
 		theDeploymentPlanModel.addAttribute("applications", applications);

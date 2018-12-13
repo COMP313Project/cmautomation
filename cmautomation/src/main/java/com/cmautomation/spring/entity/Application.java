@@ -48,9 +48,6 @@ public class Application {
 	@JoinColumn(name="vendor_Id")
 	private Vendor vendor;
 	
-	// cascade=
-	// {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH}
-	//@JoinColumn(name="Application_Id")
 	@OneToMany(mappedBy="application",cascade= {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<DeploymentPlan> deploymentPlan;

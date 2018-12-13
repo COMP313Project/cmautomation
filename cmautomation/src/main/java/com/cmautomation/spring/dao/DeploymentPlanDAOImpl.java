@@ -2,8 +2,11 @@ package com.cmautomation.spring.dao;
 
 import java.util.List;
 
+import javax.persistence.Convert;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -17,7 +20,7 @@ import com.cmautomation.spring.entity.DeploymentPlan;
  * 
  * */
 @Repository
-public class DeploymentPlanDAOImpl implements DeploymentPlanDAO {
+public class DeploymentPlanDAOImpl extends Exception implements DeploymentPlanDAO{
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -45,8 +48,7 @@ public class DeploymentPlanDAOImpl implements DeploymentPlanDAO {
 		
 		// get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
-		
-		currentSession.saveOrUpdate(theDeploymentPlan);
+		currentSession.saveOrUpdate(theDeploymentPlan);		   
 	}
 	// get the deployment plan by deployment ID
 	@Override
@@ -96,6 +98,24 @@ public class DeploymentPlanDAOImpl implements DeploymentPlanDAO {
 		List<DeploymentPlan> listDeploymentPlan = searchQuery.getResultList();
 
 		return listDeploymentPlan;
+	}
+	
+	public Integer getDeploymentPlanCountByDefectId(int defect_Id)
+	{
+		
+		// get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+
+		// create a query
+		Query theQuery = currentSession.getNamedNativeQuery("getDeploymentPlanCountByDefectIdSQL");
+		
+		theQuery.setParameter("defect_Id", defect_Id);
+
+		// execute query and get result list
+		List<DeploymentPlan> listDeploymentPlan = theQuery.getResultList();
+		
+				
+		return listDeploymentPlan.size();
 	}
 
 }

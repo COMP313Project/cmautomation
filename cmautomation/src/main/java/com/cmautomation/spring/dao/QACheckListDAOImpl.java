@@ -85,7 +85,7 @@ public class QACheckListDAOImpl implements QACheckListDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 
 		QACheckList qaCheckList = currentSession.get(QACheckList.class, qaComp_Id);
-		qaCheckList = assignViewStatus(qaCheckList);
+		//qaCheckList = assignViewStatus(qaCheckList);
 
 		return qaCheckList;
 	}
