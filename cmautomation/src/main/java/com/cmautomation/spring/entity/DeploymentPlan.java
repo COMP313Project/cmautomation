@@ -22,7 +22,7 @@ import org.springframework.format.annotation.DateTimeFormat;
         resultClass = DeploymentPlan.class
 	)
 })
-=======
+
 /*
  * This is the entity class for the DeploymentPlan which maps DeploymentPlan table in the database
  * */

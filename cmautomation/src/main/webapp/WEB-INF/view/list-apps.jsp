@@ -19,104 +19,107 @@
 
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
-	
+
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/main.css">
 </head>
 
 <body>
-<jsp:include page="/WEB-INF/view/header.jsp" />	
+	<jsp:include page="/WEB-INF/view/header.jsp" />
 	<!-- table to show application list -->
-<div class="content-page">
-	<div id="wrapper">
-		<div id="header">
-			<h2>Applications</h2>
+	<div class="content-page">
+		<div id="wrapper">
+			<div id="header">
+				<h2>Applications</h2>
+			</div>
 		</div>
-	</div>
-	
-	<div id="container">
+
+		<div id="container">
 			<security:authorize access="hasRole('ADMIN')">
 
-				<!--new button: Add Application ----------------------->						
+				<!--new button: Add Application ----------------------->
 				<input type="button" value="Add Application"
 					onclick="window.location.href='appAddForm'; return false;"
 					class="add-button" />
 			</security:authorize>
 			<!--  add our html table here --------------------------------->
-				
-				<div class="wrap-table100">
+
+			<div class="wrap-table100">
 				<div class="table100">
-				<div class="col-md-12">
-							
-			<table class="table table-bordered table-striped table-hover">
-			
-			
-			<thead>
-			
-				<tr class="table100-head">
-				
-					<th>Application Name</th>
-					<th>Description</th>
-					<th>Vendor</th>
+					<div class="col-md-12">
 
-					<%-- Only show "Action" column for managers or admin --%>
-					<security:authorize access="hasRole('ADMIN')">
+						<table class="table table-bordered table-striped table-hover">
 
-						<th>Update</th>
-						<th>Delete</th>
 
-					</security:authorize>
-				
-				</tr>
-				</thead>
-				
-				<!-- loop over and print applications -->
-				<c:forEach var="tempApplication" items="${applications}">
+							<thead>
 
-					<!-- construct an "update" link with application id -->
-					<c:url var="updateLink" value="/admin/app/appUpdateForm">
-						<c:param name="applicationId" value="${tempApplication.application_Id}" />
-					</c:url>
+								<tr class="table100-head">
 
-					<!-- construct an "delete" link with application id -->
-					<c:url var="deleteLink" value="/admin/app/delete">
-						<c:param name="applicationId" value="${tempApplication.application_Id}" />
-					</c:url>
-					
-					<tbody>
-					<tr>
-						<td>${tempApplication.applicationName}</td>
-						<td>${tempApplication.description}</td>
-						<td class="text-center">${tempApplication.vendor.vendorName}</td>
+									<th>Application Name</th>
+									<th>Description</th>
+									<th>Vendor</th>
 
-						<security:authorize access="hasRole('ADMIN')">
+									<%-- Only show "Action" column for managers or admin --%>
+									<security:authorize access="hasRole('ADMIN')">
 
-							<td><security:authorize access="hasRole('ADMIN')">
-									<!-- display the update link -->
-									<a href="${updateLink}">Update</a>
-								</security:authorize>
-							</td>					 
-							
-								<security:authorize access="hasRole('ADMIN')">
-									<c:if test="${empty tempApplication.getDefectFixDetail()}">
-										<td><a href="${deleteLink}"
-											onclick="if (!(confirm('Are you sure you want to delete?'))) return false">Delete</a></td>										
-									</c:if>
-									<c:if test="${not empty tempApplication.getDefectFixDetail()}">								
-										<td>Delete</td>								
-									</c:if>	
-								</security:authorize>					
-													
-						</security:authorize>
-					</tr>
-				</tbody>
-				</c:forEach>
-			</table>
-			  </div>
+										<th>Update</th>
+										<th>Delete</th>
+
+									</security:authorize>
+
+								</tr>
+							</thead>
+
+							<!-- loop over and print applications -->
+							<c:forEach var="tempApplication" items="${applications}">
+
+								<!-- construct an "update" link with application id -->
+								<c:url var="updateLink" value="/admin/app/appUpdateForm">
+									<c:param name="applicationId"
+										value="${tempApplication.application_Id}" />
+								</c:url>
+
+								<!-- construct an "delete" link with application id -->
+								<c:url var="deleteLink" value="/admin/app/delete">
+									<c:param name="applicationId"
+										value="${tempApplication.application_Id}" />
+								</c:url>
+
+								<tbody>
+									<tr>
+										<td>${tempApplication.applicationName}</td>
+										<td>${tempApplication.description}</td>
+										<td class="text-center">${tempApplication.vendor.vendorName}</td>
+
+										<security:authorize access="hasRole('ADMIN')">
+
+											<td><security:authorize access="hasRole('ADMIN')">
+													<!-- display the update link -->
+													<a href="${updateLink}">Update</a>
+												</security:authorize></td>
+
+											<security:authorize access="hasRole('ADMIN')">
+												<c:if test="${empty tempApplication.getDefectFixDetail()}">
+													<td><a href="${deleteLink}"
+														onclick="if (!(confirm('Are you sure you want to delete?'))) return false">Delete</a></td>
+												</c:if>
+												<c:if
+													test="${not empty tempApplication.getDefectFixDetail()}">
+													<td>Delete</td>
+												</c:if>
+											</security:authorize>
+
+										</security:authorize>
+									</tr>
+								</tbody>
+							</c:forEach>
+						</table>
+					</div>
+				</div>
 			</div>
-		</div><!-- content -->
+			<!-- content -->
+		</div>
 	</div>
-</div>
-<div>
-<jsp:include page="/WEB-INF/view/footer.jsp" />
-</div>
+	<div>
+		<jsp:include page="/WEB-INF/view/footer.jsp" />
+	</div>

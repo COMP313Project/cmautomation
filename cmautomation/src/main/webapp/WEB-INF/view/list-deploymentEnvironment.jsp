@@ -54,7 +54,7 @@
 					<security:authorize access="hasRole('ADMIN')">
 
 						<th>Update</th>
-						<th>Delete</th>
+						<!-- <th>Delete</th> -->
 
 					</security:authorize>
 				</tr>
@@ -67,11 +67,8 @@
 						<c:param name="environmentId" value="${tempEnvironment.environment_Id}" />
 					</c:url>
 
-					<!-- construct an "delete" link with application id -->
-					<c:url var="deleteLink" value="/environment/delete">
-						<c:param name="environmentId" value="${tempEnvironment.environment_Id}" />
-					</c:url>
-
+					
+ 
 					<tr>
 						<td>${tempEnvironment.environmentName}</td>
 						<td>${tempEnvironment.description}</td>

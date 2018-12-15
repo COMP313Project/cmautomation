@@ -43,20 +43,21 @@ public class GlobalDefaultExceptionHandler {
 			return mav;
 		}
 	}// handles null pointer exception
-	@ExceptionHandler(value = NullPointerException.class)
-	public ModelAndView nullPointerExceptionHandler(HttpServletRequest req, Exception e) throws Exception {
-
-		if (AnnotationUtils.findAnnotation(e.getClass(), ResponseStatus.class) != null) {
-			throw e;
-		} else {
-			// setup and send the user to a default error-view.
-			ModelAndView mav = new ModelAndView();
-			mav.addObject("message", e);
-			mav.addObject("url", req.getRequestURL());
-			mav.setViewName(GENERIC_ERROR_VIEW);
-			return mav;
-		}
-	}
+//	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+//	@ExceptionHandler(value = Exception.class)
+//	public ModelAndView nullPointerExceptionHandler(HttpServletRequest req, Exception e) throws Exception {
+//
+//		if (AnnotationUtils.findAnnotation(e.getClass(), ResponseStatus.class) != null) {
+//			throw e;
+//		} else {
+//			// setup and send the user to a default error-view.
+//			ModelAndView mav = new ModelAndView();
+//			mav.addObject("message", e);
+//			mav.addObject("url", req.getRequestURL());
+//			mav.setViewName(GENERIC_ERROR_VIEW);
+//			return mav;
+//		}
+//	}
 	// generic handler for any errors
 	@ExceptionHandler(value = Exception.class)
 	public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {

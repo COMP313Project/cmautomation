@@ -26,7 +26,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 	)
 })
 
-=======
 /*
  * This is the entity class for the DefectFixDetail which maps DefectFixDetail table in the database
  * */
