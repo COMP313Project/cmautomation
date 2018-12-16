@@ -28,7 +28,7 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/view/header.jsp" />
-	<h2>You are not authorized to perform this operation. Please contact Support Team</h2>
+	<h2>You are not authorized to perform this operation 500. Please contact Support Team</h2>
 	<h4>URL: ${url}</h4>
 	<br>
 	<h4>Message: ${message}</h4>

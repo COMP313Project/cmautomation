@@ -21,6 +21,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.cmautomation.spring.entity.DeploymentEnvironment;
 import com.cmautomation.spring.service.DeploymentEnvironmentService;
 
+
+/*
+ * 
+ * This controller handles CRUD operation for Environments managed by ADMIN user  
+ * 
+ * */
 @Controller
 @RequestMapping("/environment")
 public class DeploymentEnvironmentController {
@@ -36,6 +42,8 @@ public class DeploymentEnvironmentController {
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
 	}
 
+	
+	// lists all env's
 	@GetMapping("/list")
 	public String listDeploymentEnvironments(Model theEnvModel) {
 
@@ -47,6 +55,8 @@ public class DeploymentEnvironmentController {
 		return "list-deploymentEnvironment";
 	}
 
+	
+	// adda new form
 	@GetMapping("/envAddForm")
 	public String showAddForm(Model theEnvModel) {
 
@@ -57,7 +67,7 @@ public class DeploymentEnvironmentController {
 
 		return "environment-form";
 	}
-
+	// saves a new environment to the app
 	@PostMapping("/saveEnvironment")
 	public String saveEnvironment(@Valid @ModelAttribute("environments") DeploymentEnvironment deploymentEnvironment,
 			BindingResult theBindingResult) {
@@ -70,6 +80,7 @@ public class DeploymentEnvironmentController {
 		}		
 	}
 
+	// updates an existing environments
 	@GetMapping("/envUpdateForm")
 	public String envUpdateForm(@RequestParam("environmentId") int envId, Model theEnvModel) {
 
@@ -83,7 +94,7 @@ public class DeploymentEnvironmentController {
 
 		return "environment-form";
 	}
-
+	// deletes an existing environment
 	@GetMapping("/delete")
 	public String deleteForm(@RequestParam("environmentId") int envId) {
 		// delete the application

@@ -33,6 +33,12 @@ import com.cmautomation.spring.service.DefectFixDetailService;
 import com.cmautomation.spring.service.DeploymentPlanService;
 
 
+
+/*
+ * This controller deals with CRUD operation of Deployment plan for CMA User 
+ * 
+ *  
+ * */
 @Controller
 @RequestMapping("/cma/deploymentPlan")
 public class DeploymentPlanController {
@@ -49,14 +55,8 @@ public class DeploymentPlanController {
 //	@Autowired
 //	private QACheckListService qACheckListService;
 
-//	// pre-process form data and eliminates any white spaces
-//	@InitBinder
-//	public void initBinder(WebDataBinder dataBinder) {
-//
-//		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
-//		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
-//	}
 
+	// show lists of all the deployment plans
 	@GetMapping("/list") // works
 	public String getDeploymentPlan(Model theDeploymentPlanModel) {
 
@@ -76,8 +76,6 @@ public class DeploymentPlanController {
 		return applications;
 	}
 	
-
-
 	@GetMapping("/addForm")
 	public String showPlanAddForm(Model theDeploymentPlanModel) {
 
@@ -85,7 +83,9 @@ public class DeploymentPlanController {
 
 		List<Application> applications = applicationService.getApplications();
 
-		List<DefectFixDetail> listDefectFixDetail = defectFixDetailService.getDefectList();
+		//List<DefectFixDetail> listDefectFixDetail = defectFixDetailService.getDefectList();
+		List<DefectFixDetail> listDefectFixDetail = defectFixDetailService.getNotDeployedDefectList();
+		
 
 		theDeploymentPlanModel.addAttribute("deploymentPlanDetail", theDeploymentPlan);
 		theDeploymentPlanModel.addAttribute("applications", applications);
@@ -142,9 +142,6 @@ public class DeploymentPlanController {
 			theDeploymentPlan.setDefects(objDefects);
 
 			List<Application> applications = applicationService.getApplications();
-
-			
-
 			theDeploymentPlanModel.addAttribute("deploymentPlanDetail", theDeploymentPlan);
 			theDeploymentPlanModel.addAttribute("applications", applications);
 			theDeploymentPlanModel.addAttribute("listDefectFixDetail", listDefectFixDetail);
@@ -157,7 +154,7 @@ public class DeploymentPlanController {
 		return "deploymentPlan-form";
 	}
 
-	// delete defect fix detail
+	// delete a deployment plan
 	@GetMapping("/deleteDeploymentPlan") // works fine
 	public String deleteDeploymentPlan(@RequestParam("deployment_Id") int deployment_Id) {
 

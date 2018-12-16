@@ -20,6 +20,9 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+/*
+ * This is the entity class for the application which maps application table in the database
+ * */
 
 @Entity
 @Table(name = "applications")
@@ -45,9 +48,6 @@ public class Application {
 	@JoinColumn(name="vendor_Id")
 	private Vendor vendor;
 	
-	// cascade=
-	// {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH}
-	//@JoinColumn(name="Application_Id")
 	@OneToMany(mappedBy="application",cascade= {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<DeploymentPlan> deploymentPlan;

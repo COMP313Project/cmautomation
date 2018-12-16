@@ -50,7 +50,7 @@
 					</tr>
 					<tr>
 						<td><label>Description:</label></td>
-						<td><form:input path="description" required="true" "/><span class="required-field">  </span></td>
+						<td><form:input path="description" required="true" /><span class="required-field">  </span></td>
 						<td><form:errors path="description" cssClass="error" /></td>
 											
 					</tr>

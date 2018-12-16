@@ -24,6 +24,10 @@ import com.cmautomation.spring.service.ApplicationService;
 import com.cmautomation.spring.service.DefectFixDetailService;
 import com.cmautomation.spring.service.VendorService;
 
+/*
+ * This controller class deals with the CRUD operation for Defects
+ * 
+ * */
 @Controller
 @RequestMapping("/cma")
 public class DefectFixDetailController {
