@@ -9,6 +9,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+
+/*
+ * This is the entity class for the DeploymentEnvironment which maps DeploymentEnvironment table in the database
+ * */
 @Entity
 @Table(name="deployment_environments")
 public class DeploymentEnvironment {

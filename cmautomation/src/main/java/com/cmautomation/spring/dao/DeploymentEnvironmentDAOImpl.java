@@ -11,12 +11,19 @@ import org.springframework.stereotype.Repository;
 import com.cmautomation.spring.entity.Application;
 import com.cmautomation.spring.entity.DeploymentEnvironment;
 
+/*
+ * This Data access layer inherits from DeploymentEnvironmentDAO, and communicates with Database with 
+ * CRUD operation for Application for ADMIN User 
+ * 
+ * */
+
 @Repository
 public class DeploymentEnvironmentDAOImpl implements DeploymentEnvironmentDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	// list all the environments
 	@Override
 	public List<DeploymentEnvironment> getEnvironmentList() {
 
@@ -34,6 +41,7 @@ public class DeploymentEnvironmentDAOImpl implements DeploymentEnvironmentDAO {
 		return environments;
 	}
 
+	// saves a new environment
 	@Override
 	public void saveEnvironment(DeploymentEnvironment deploymentEnvironment) {
 		// get the current hibernate session

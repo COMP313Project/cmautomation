@@ -10,6 +10,12 @@ import org.springframework.stereotype.Service;
 import com.cmautomation.spring.dao.DeploymentCheckListDAO;
 import com.cmautomation.spring.entity.DeploymentCheckList;
 
+/*
+ * This class serves as service layer of MVC and handles business logic of the application
+ * and communicate to DeploymentChecklist controller
+ * 
+ * 
+ * */
 @Service
 public class DeploymentCheckListServiceImpl implements DeploymentCheckListService {
 

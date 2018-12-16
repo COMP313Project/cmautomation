@@ -6,14 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.IdClass;
 //@Embeddable
 
+/*
+ * This class provides a composite Key to the 
+ * */
 public class QACompositeKeyId implements Serializable {
-
-	/*
-	 * private Integer deployment_Id;
-	 * 
-	 * private Integer environment_Id;
-	 * 
-	 */
 
 	private DeploymentPlan deploymentPlan;
 

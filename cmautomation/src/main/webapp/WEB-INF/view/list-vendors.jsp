@@ -89,12 +89,16 @@
 									<a href="${updateLink}">Update</a>
 								</security:authorize> 
 							</td>
-							<td>
+							
 								<security:authorize access="hasRole('ADMIN')">
-									<a href="${deleteLink}"
-										onclick="if (!(confirm('Are you sure you want to delete?'))) return false">Delete</a>
+									<c:if test="${empty tempVendor.getAapplicationList()}">
+										<td><a href="${deleteLink}"	onclick="if (!(confirm('Are you sure you want to delete?'))) return false">Delete</a></td>
+									</c:if>
+									<c:if test="${not empty tempVendor.getAapplicationList()}">
+										<td>Delete</td>
+									</c:if>
 								</security:authorize>
-							</td>
+							
 						</security:authorize>
 					</tr>
 				</c:forEach>

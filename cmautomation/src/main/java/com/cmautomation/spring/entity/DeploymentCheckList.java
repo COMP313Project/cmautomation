@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -20,6 +22,18 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+
+/*
+ * This is the entity class for the DeploymentCheckList which maps DeploymentCheckList table in the database
+ * */
+@NamedNativeQueries({
+	@NamedNativeQuery(
+	name = "updateDefectStatusSQL",	
+	query = "update cm_automation.defect_fix_detail as A set A.status = :Status where A.defect_Id in" 
+			+"(select B.defect_Id from cm_automation.deployement_defectlist as B where B.deployement_Id = :deployement_Id); "       
+	)
+})
 
 @Entity
 @Table(name = "deploymentchecklist")

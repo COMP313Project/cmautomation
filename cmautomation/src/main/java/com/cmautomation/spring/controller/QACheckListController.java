@@ -1,7 +1,3 @@
-///
-
-
-
 package com.cmautomation.spring.controller;
 
 import java.util.List;
@@ -29,6 +25,11 @@ import com.cmautomation.spring.service.DefectFixDetailService;
 import com.cmautomation.spring.service.DeploymentEnvironmentService;
 import com.cmautomation.spring.service.DeploymentPlanService;
 import com.cmautomation.spring.service.QACheckListService;
+
+/*
+ * This controller handles CRUD operation for QA user
+ * 
+ * */
 
 @Controller
 @RequestMapping("/qa/checkList")
