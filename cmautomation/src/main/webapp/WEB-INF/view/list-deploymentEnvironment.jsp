@@ -80,12 +80,12 @@
 									<a href="${updateLink}">Update</a>
 								</security:authorize>
 							</td>
-							<security:authorize access="hasRole('ADMIN')">								
+							<!--<security:authorize access="hasRole('ADMIN')">								
 								
 										<td><a href="${deleteLink}"
 										onclick="if (!(confirm('Are you sure you want to delete?'))) return false">Delete</a></td>
 																
-								</security:authorize>
+								</security:authorize>-->
 						</security:authorize>
 					</tr>
 				</c:forEach>

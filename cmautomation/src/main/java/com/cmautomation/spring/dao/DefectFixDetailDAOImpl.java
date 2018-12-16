@@ -164,6 +164,7 @@ public class DefectFixDetailDAOImpl implements DefectFixDetailDAO {
 		// execute query and get result list
 		List<DefectFixDetail> listDefects = searchQuery.getResultList();
 		listDefects = assignViewStatus(listDefects);
+		listDefects = assignIsUsedInDdeploymentPlan(listDefects);
 		return listDefects;
 	}
 }

@@ -21,7 +21,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @NamedNativeQueries({
 	@NamedNativeQuery(
 	name = "getNotDeployedDefectListSQL",	
-	query = "select * from defect_fix_detail df where df.defect_Id not in(select defect_Id from deployement_defectlist)",
+	query = "select * from defect_fix_detail df where df.defect_Id not in(select defect_Id from deployement_defectlist) and df.status > 1",
         resultClass = DefectFixDetail.class
 	)
 })
