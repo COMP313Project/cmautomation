@@ -22,7 +22,7 @@
 	href="${pageContext.request.contextPath}/resources/css/style.css">
 
 
-<style>
+<style type="text/css">
 .error {
 	color: red
 }
@@ -30,20 +30,77 @@
 </head>
 
 <body>
-<jsp:include page="/WEB-INF/view/header.jsp" />
-<div class="content-page">
-	<div id="wrapper">
-		<div id="header">
-			<h2></h2>
+	<jsp:include page="/WEB-INF/view/header.jsp" />
+	<div class="content-page">
+		<div id="wrapper">
+			<div id="header">
+				<h2></h2>
+			</div>
 		</div>
-	</div>
 
-	<div id="container">
+		<div id="container">
 
-	<h3>Welcome to CM Automation Web App</h3>
+			<h3>
+				Welcome to CM Automation Web App
+				<security:authentication property="principal.username" />
+				!
+			</h3>
+			&nbsp;
+			<div class="container">
+				<div class=" col-md-12 table table-bordered">
+					<p>Thank you for choosing CMAutomation Tool to make your
+						business more efficient and productive. This tool is an:</p>
+					<ul>
+						<li>Automated system for user management</li>
+						<li>Automated system to store and retrieve fix information,
+							plan, and maintain deployment procedure</li>
+						<li>Search functionality to retrieve specific and relevant
+							information quickly</li>
+						<li>Relational database to store and manipulate data</li>
+						<li>Test data</li>
+					</ul>
+					<p>As a CMA Role:</p>
+					<ul>
+						<li>You are the primary user of the app</li>
+						<li>You will create/update/delete entries to the app.</li>
+						<li>You will have full access to the app except specific
+							update permission to UIs related to deployment and QA
+							information.</li>
+					</ul>
+					<p>As an Admin:</p>
+					<ul>
+						<li>You are able to create/update/remove all other users to
+							the system</li>
+						<li>You are able to assign roles to users</li>
+						<li>You are able to have full access to the app</li>
+					</ul>
+					<p>As a TSA:</p>
+					<ul>
+						<li>You will have write access to UIs related to deployment
+							information</li>
+						<li>You will have read only access to other area</li>
+					</ul>
+					<p>As a QA:</p>
+					<ul>
+						<li>You will ensure that the defects/changes meet various
+							quality check points after deployment in any environment</li>
+						<li>You will be able to authorize pass or fail regarding a
+							test</li>
+						<li>You are given limited access and are able to update
+							quality related information in the app</li>
+					</ul>
+					<p>As a User:</p>
+					<ul>
+						<li>You will be able to review all or some of the information
+							stored in the system</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
 	</div>
-	
-</div>
-<div>
-<jsp:include page="/WEB-INF/view/footer.jsp" />
-</div>
+	<div>
+		<jsp:include page="/WEB-INF/view/footer.jsp" />
+	</div>
+</body>
+</html>
