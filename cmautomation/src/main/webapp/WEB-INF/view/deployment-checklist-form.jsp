@@ -4,6 +4,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
+	<%= request.getUserPrincipal().getName() %>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -158,8 +160,12 @@
 							<label>Deployed by:</label>
 						</td>
 						<td colspan="3">
-							<form:input type="text"  path="deployedBy" required="true" /><span class="required-field">  </span>
+						
+							<form:input type="text" path ="deployedBy" value="<sec:authentication property="principal.username"/>" readonly="readonly"/>
+							
+							<span class="required-field">  </span>
 							<form:errors path="deployedBy" cssClass="error" />
+							
 						</td>
 					</tr>
 					<security:authorize access="hasRole('TSA')">
